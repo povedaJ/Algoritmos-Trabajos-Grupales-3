@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="594.0" prefWidth="824.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.KnightTourController">
+   <center>
+      <AnchorPane prefHeight="599.0" prefWidth="824.0" style="-fx-background-color: #76D7C4;">
+         <children>
+            <Pane layoutX="-3.0" prefHeight="72.0" prefWidth="826.0" style="-fx-background-color: #A93226;">
+               <children>
+                  <Text layoutX="219.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KnightTour Solution">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <TextArea fx:id="textArea" layoutX="1.0" layoutY="72.0" prefHeight="226.0" prefWidth="818.0">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextArea>
+            <Text layoutX="14.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KnightTour Solution for a 8x8 board" textAlignment="CENTER" wrappingWidth="198.55004501342773">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tableView" layoutX="216.0" layoutY="298.0" prefHeight="293.0" prefWidth="481.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
