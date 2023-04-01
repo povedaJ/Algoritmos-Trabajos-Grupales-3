@@ -82,6 +82,7 @@ public class VectorTest {
 //para la clase VectorE
     @Test
     public void testVectorE(){
+        System.out.println("\n\nTEST VECTOR E................\n");
         VectorE<String> vector= new VectorE(50);
         util.Utility.fill2(vector); //llena la lista
         System.out.println(vector.toString());

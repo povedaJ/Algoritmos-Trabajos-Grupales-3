@@ -5,7 +5,7 @@ import java.util.Set;
 
 import java.util.concurrent.ThreadLocalRandom;
 public class Probabilistic {
-    public void BirthdayParadox(int people){
+    public double BirthdayParadox(int people){
 
         int n = people;
         final int trials = 100000;
@@ -19,10 +19,12 @@ public class Probabilistic {
         }
 
         double prob = (double) birthdayMatches / trials * 100;
+        System.out.println("Birthday Paradox Probability for "+people+" persons: " +util.Utility.format(prob)+"%\n");
 
-        System.out.printf("Sample size: %d %n", people);
-        System.out.printf("Number of trials: %,d %n", trials);
-        System.out.printf("Probability of a match: %.2f%% %n", prob);
+        // System.out.printf("Sample size: %d %n", people);
+        //System.out.printf("Number of trials: %,d %n", trials);
+       // System.out.printf("Probability of a match: %.2f%% %n", prob+"\n");
+   return prob;
     }
 
 
