@@ -1,5 +1,9 @@
 package domain;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 public class VectorE<E>implements VectorList {
 
     private int n;// tamaño máximo del vector
@@ -30,6 +34,11 @@ public class VectorE<E>implements VectorList {
 
     @Override
     public boolean contains(Object element) {
+        for (int i = 0; i <counter; i++) {
+            if(this.data[i] == (E) element){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -52,13 +61,18 @@ public class VectorE<E>implements VectorList {
 
     @Override
     public Object remove(int index) {
-        return null;
+        String result = "";
+        if(index<counter){
+            result = (String)this.data[index];
+            this.data[index]= null;
+        }
+
+        return result;
     }
 
     @Override
     public void sort() {
-        bubbleSort();
-
+        Arrays.sort(this.data);
     }
 
     void bubbleSort() {
@@ -106,7 +120,7 @@ public class VectorE<E>implements VectorList {
                   result+="\n";
                   aux=0;
                 }
-                result+=data[i]+" ";
+                result+=data[i]+", ";
             }
         }
         return result;
