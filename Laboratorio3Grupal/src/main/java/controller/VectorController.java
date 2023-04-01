@@ -76,7 +76,16 @@ public class VectorController {
 
     @FXML
     void sizeOnAction(ActionEvent event) {
-        textArea.setText("The vector size is : " + vector.getN());
+
+        if (isValid()) {
+
+            textArea.setText("The vector size is : " + vector.size());
+        } else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the info and try again");
+            alert.showAndWait();
+        }
+
     }
 
     private Alert alert(String title, String headerText) {
