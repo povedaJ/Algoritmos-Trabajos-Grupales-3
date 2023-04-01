@@ -62,7 +62,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Button layoutX="205.0" layoutY="540.0" mnemonicParsing="false" onAction="#fillShowOnAction" text="Add by Index">
+                  <Button layoutX="205.0" layoutY="540.0" mnemonicParsing="false" onAction="#addIndexOnAction" text="Add by Index">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -83,7 +83,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button layoutX="419.0" layoutY="540.0" mnemonicParsing="false" onAction="#fillShowOnAction" text="Add by value">
+                  <Button layoutX="419.0" layoutY="540.0" mnemonicParsing="false" onAction="#addVlueOnAction" text="Add by value">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -104,7 +104,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button layoutX="14.0" layoutY="624.0" mnemonicParsing="false" onAction="#fillShowOnAction" text="Remove by Index">
+                  <Button layoutX="14.0" layoutY="624.0" mnemonicParsing="false" onAction="#removeIndexOnAction" text="Remove by Index">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -125,7 +125,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button layoutX="646.0" layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#fillShowOnAction" text="Contains">
+                  <Button layoutX="646.0" layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#containsOnAction" text="Contains">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -146,7 +146,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button layoutX="543.0" layoutY="624.0" mnemonicParsing="false" onAction="#fillShowOnAction" text="Clear">
+                  <Button layoutX="543.0" layoutY="624.0" mnemonicParsing="false" onAction="#clearOnAction" text="Clear">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -167,7 +167,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button layoutX="690.0" layoutY="624.0" mnemonicParsing="false" onAction="#fillShowOnAction" text="Size">
+                  <Button layoutX="690.0" layoutY="624.0" mnemonicParsing="false" onAction="#sizeOnAction" text="Size">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -188,7 +188,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Button layoutX="279.0" layoutY="624.0" mnemonicParsing="false" onAction="#fillShowOnAction" text="Remove by value ">
+                  <Button layoutX="279.0" layoutY="624.0" mnemonicParsing="false" onAction="#removeValueOnAction" text="Remove by value ">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
