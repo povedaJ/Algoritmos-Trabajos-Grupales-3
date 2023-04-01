@@ -34,6 +34,8 @@ public class VectorController {
 
     @FXML
     void clearOnAction(ActionEvent event) {
+        this.maxField.clear();
+        this.textArea.clear();
 
     }
 
@@ -74,7 +76,7 @@ public class VectorController {
 
     @FXML
     void sizeOnAction(ActionEvent event) {
-
+        textArea.setText("The vector size is : " + vector.getN());
     }
 
     private Alert alert(String title, String headerText) {
