@@ -19,7 +19,7 @@ public class Probabilistic {
         }
 
         double prob = (double) birthdayMatches / trials * 100;
-        System.out.println("Birthday Paradox Probability for "+people+" persons: " +util.Utility.format(prob)+"%\n");
+       // System.out.println("Birthday Paradox Probability for "+people+" persons: " +util.Utility.format(prob)+"%\n");
 
         // System.out.printf("Sample size: %d %n", people);
         //System.out.printf("Number of trials: %,d %n", trials);

@@ -9,12 +9,18 @@ public class ProbabilisticTest {
     @Test
     public void testBirthdayParadox() {
         Probabilistic pb = new Probabilistic();
-        pb.BirthdayParadox(30);
-        pb.BirthdayParadox(23);
-        pb.BirthdayParadox(57);
-        pb.BirthdayParadox(10);
-        pb.BirthdayParadox(85);
-        System.out.println(  pb.BirthdayParadox(5));
+
+        System.out.println("Birthday Paradox Probability for "+30+" persons: "
+                +util.Utility.format(pb.BirthdayParadox(30))+"%\n");
+        System.out.println("Birthday Paradox Probability for "+23+" persons: "
+                +util.Utility.format(pb.BirthdayParadox(23))+"%\n");
+        System.out.println("Birthday Paradox Probability for "+57+" persons: "
+                +util.Utility.format(pb.BirthdayParadox(57))+"%\n");
+        System.out.println("Birthday Paradox Probability for "+10+" persons: "
+                +util.Utility.format(pb.BirthdayParadox(10))+"%\n");
+        System.out.println("Birthday Paradox Probability for "+85+" persons: "
+                +util.Utility.format(pb.BirthdayParadox(85))+"%\n");
+
 
     }
 }
