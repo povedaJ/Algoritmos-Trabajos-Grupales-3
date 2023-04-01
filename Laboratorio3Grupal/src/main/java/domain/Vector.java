@@ -93,7 +93,8 @@ public class Vector implements VectorList{
 
     @Override
     public Object get(int index) {
-        return null;
+            //this.data[index]=(int)element;
+        return this.data[index];
     }
 
     public int getN() {

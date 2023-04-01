@@ -20,8 +20,7 @@ public class DivideAndConquer {
         int middle = (low+high)/2;
         if(low>high)
             return -1;
-        else
-        if(value==sortedArray[middle])
+        else if(value==sortedArray[middle])
             return middle;
         else if (value<sortedArray[middle])
             return binarySearchRecursive(sortedArray, value, low, middle-1);
