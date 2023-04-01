@@ -1,5 +1,7 @@
 package util;
 import domain.Vector;
+import domain.VectorE;
+
 import java.text.DecimalFormat;
 import java.util.Random;
 
@@ -7,6 +9,14 @@ import java.util.Random;
 public class Utility {
     private static Random random;
     private static long seed; //semilla para el random
+
+    //son 25 nombres de paises
+    private static String[] paises = {"Argentina", "Colombia", "Costa Rica", "Portugal", "Chile",
+                                      "Rusia", "Ecuador", "India", "Bahamas", "Belice",
+                                      "Peru", "Cuba", "Alemania", "El Salvador", "Granada",
+                                      "Guatemala", "Guyana", "Haití", "Honduras", "Jamaica",
+                                      "México", "Nicaragua", "Panamá", "Paraguay", "República Dominicana"};
+
     //static initializer
     static {
         seed = System.currentTimeMillis();
@@ -22,12 +32,22 @@ public class Utility {
                 .format(value);
     }
 
+    //llena el objeto con enteros
     public static void fill(Vector vector) {
         int n = vector.getN();
         for (int i = 0; i < n; i++) {
             vector.add(random(99));
         }
     }
+
+    //Llena el objeto con String
+    public static void fill2(VectorE<String> vector) {
+        int n = vector.getN();
+        for (int i = 0; i < n; i++) {
+            vector.add(paises[random(25)-1]);
+        }
+    }
+
 
     public static <E> int compare(Object a, Object b) {
         switch (instanceOf(a,b)){

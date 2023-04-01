@@ -13,7 +13,6 @@ public class Vector implements VectorList{
 
     @Override
     public int size() {
-
         return counter;
     }
 
@@ -30,6 +29,11 @@ public class Vector implements VectorList{
 
     @Override
     public boolean contains(Object element) {
+        for (int i = 0; i <counter ; i++) {
+            if (data[i]== (int)element){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -55,7 +59,12 @@ public class Vector implements VectorList{
 
     @Override
     public Object remove(int index) {
-        return null;
+        int result = 0;
+        if(index<counter){
+            result=this.data[index];
+            this.data[index]= 0;
+        }
+        return result;
     }
 
     @Override
