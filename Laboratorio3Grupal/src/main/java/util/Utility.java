@@ -1,6 +1,8 @@
 package util;
 import domain.Vector;
 import domain.VectorE;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -76,5 +78,12 @@ public class Utility {
         return "Unknown";
 
 
+    }
+    public static Alert alert(String title, String headerText) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle(title);
+        a.setHeaderText(headerText);
+        DialogPane dp = a.getDialogPane();
+        return a;
     }
 }
