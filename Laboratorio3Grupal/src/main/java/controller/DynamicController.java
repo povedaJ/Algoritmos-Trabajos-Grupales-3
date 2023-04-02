@@ -8,20 +8,24 @@ import javafx.scene.control.*;
 public class DynamicController {
 
     @FXML
-    private TextField cbField;
-
-    @FXML
     private ChoiceBox<String> choicebox;
     private String[] choice = {"Factorial", "Fibonacci"};
+    @FXML
+    private TextField cbField;
+
 
     @FXML
     private TextField nField;
 
     @FXML
     private TextField resultCB;
+
+
+
     Alert alert;
 
     Dynamic dynamic;
+
 
     public void initialize() {
 
