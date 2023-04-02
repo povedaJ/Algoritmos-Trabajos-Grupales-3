@@ -24,7 +24,7 @@ public class VectorController {
 
     @FXML
     void addIndexOnAction(ActionEvent event) {
-        //inserta elemento en la posicion dada  //el valor del elemento no cambia, por el momento es 50
+        //inserta un elemento en la posicion dada  //el valor del elemento no cambia, por el momento es 50
         if (isValid()) {
             int i= (int) Integer.valueOf(this.maxField.getText());
 
