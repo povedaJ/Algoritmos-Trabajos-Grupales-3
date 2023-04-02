@@ -42,7 +42,7 @@ public class VectorController {
 
     @FXML
     void addVlueOnAction(ActionEvent event) {
-        //inserta elemento al final
+        //inserta un elemento al final
         if (isValid()) {
             vector.add(Integer.valueOf(this.maxField.getText()));
             this.textArea.setText("Element added successfully"+vector.toString());
