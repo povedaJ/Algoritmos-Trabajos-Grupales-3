@@ -43,49 +43,49 @@ public class DivideAndConquerController {
     void searchOnAction(ActionEvent event) {
         String result = " BINARY SEARCH TEST\n";
         if (choicebox.getValue() == "Iteractive BS"|| choicebox.getValue() == "Recursive BS" ){
-            for (int i = 0; i < 20; i++) {
-                int value = util.Utility.random(99);
-                int indexArrays = java.util.Arrays.binarySearch(vector.getData(), value);
-                //java.util.Arrays
-                result += indexArrays >= 0
-                        ? "java.util.Arrays class BS... the element [" + value + "] exist at the position " + indexArrays+"\n"
-                        : "java.util.Arrays class BS... the element [" + value + "] does not exist in vector\n";
+        for (int i = 0; i < 20; i++) {
+            int value = util.Utility.random(99);
+            int indexArrays = java.util.Arrays.binarySearch(vector.getData(), value);
+            //java.util.Arrays
+            result += indexArrays >= 0
+                    ? "java.util.Arrays class BS... the element [" + value + "] exist at the position " + indexArrays+"\n"
+                    : "java.util.Arrays class BS... the element [" + value + "] does not exist in vector\n";
 
-                //java.util.collection
-                indexArrays= Collections.binarySearch(getDataList(vector),value);
+            //java.util.collection
+            indexArrays= Collections.binarySearch(getDataList(vector),value);
 
-                result+= indexArrays>=0
-                        ?"java.util.collections BS... the element ["+value+"] exist at the position "+indexArrays+"\n"
-                        :"java.util.collections  BS... the element ["+value+"] does not exist in vector\n";
-
-
-                if (choicebox.getValue() == "Iteractive BS") {
+            result+= indexArrays>=0
+                            ?"java.util.collections BS... the element ["+value+"] exist at the position "+indexArrays+"\n"
+                            :"java.util.collections  BS... the element ["+value+"] does not exist in vector\n";
 
 
-                    indexArrays= domain.DivideAndConquer.binarySearch(vector.getData(), value);
+            if (choicebox.getValue() == "Iteractive BS") {
 
-                    result+=
-                            indexArrays>=0
-                                    ?"domain.DivideAndConquer.BS (iterative ) ["+value+"] exist at the position "+indexArrays+"\n"
-                                    :"domain.DivideAndConquer.BS (iterative ) ["+value+"] does not exist in vector \n";
 
-                } else if (choicebox.getValue() == "Recursive BS") {
-                    indexArrays= domain.DivideAndConquer.binarySearchRecursive(vector.getData(), value,0,vector.size()-1);
+                indexArrays= domain.DivideAndConquer.binarySearch(vector.getData(), value);
 
-                    result+=
-                            indexArrays>=0 && indexArrays<50
-                                    ?"domain.DivideAndConquer.BS (recursive ) ["+value+"] exist at the position "+indexArrays+"\n"
-                                    :"domain.DivideAndConquer.BS (recursive ) ["+value+"] does not exist in vector\n";
+                result+=
+                        indexArrays>=0
+                                ?"domain.DivideAndConquer.BS (iterative ) ["+value+"] exist at the position "+indexArrays+"\n"
+                                :"domain.DivideAndConquer.BS (iterative ) ["+value+"] does not exist in vector \n";
 
-                } result+="\n\n";
-                this.textArea.setText(result);
-            }}else {
+            } else if (choicebox.getValue() == "Recursive BS") {
+                indexArrays= domain.DivideAndConquer.binarySearchRecursive(vector.getData(), value,0,vector.size()-1);
+
+               result+=
+                        indexArrays>=0 && indexArrays<50
+                                ?"domain.DivideAndConquer.BS (recursive ) ["+value+"] exist at the position "+indexArrays+"\n"
+                                :"domain.DivideAndConquer.BS (recursive ) ["+value+"] does not exist in vector\n";
+
+            } result+="\n\n";
+            this.textArea.setText(result);
+        }}else {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("Please complete the info and try again");
             alert.showAndWait();
         }
 
-    }
+        }
 
     public ArrayList<Integer> getDataList(Vector v) {
         ArrayList<Integer> list = new ArrayList<>();

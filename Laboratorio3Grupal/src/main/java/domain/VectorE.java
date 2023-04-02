@@ -80,7 +80,7 @@ public class VectorE<E>implements VectorList {
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - i - 1; j++)
                 if (util.Utility.compare(data[j],data[j+1])==-1){
-               // if (data[j] > data[j + 1]) {
+                    // if (data[j] > data[j + 1]) {
                     // swap arr[j+1] and arr[j]
                     E temp = data[j];
                     data[j] = data[j + 1];
@@ -117,8 +117,8 @@ public class VectorE<E>implements VectorList {
         for (int i = 0; i <counter ; i++) {
             if (data[i]!=null){
                 if (aux++>=20){
-                  result+="\n";
-                  aux=0;
+                    result+="\n";
+                    aux=0;
                 }
                 result+=data[i]+", ";
             }

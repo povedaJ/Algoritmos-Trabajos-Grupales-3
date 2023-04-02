@@ -2,8 +2,8 @@ package domain;
 
 public class Vector implements VectorList{
     private int n;// tamaño máximo del vector
-     private int data []; //array de elementos tipo enteros
-     private int counter;// cantidad de elementos agregados
+    private int data []; //array de elementos tipo enteros
+    private int counter;// cantidad de elementos agregados
 
     public Vector(int n) {
         this.n = n;
@@ -39,21 +39,24 @@ public class Vector implements VectorList{
 
     @Override
     public void add(Object element) {
-        if (this.counter < this.n) {
-            this.data[this.counter++] = (Integer)element;
-        } else {
-            for(int i = 0; i < this.counter - 1; ++i) {
-                if (this.data[i] == 0) {
-                    this.data[i] = this.data[i + 1];
-                    this.data[i + 1] = 0;
+        //pone el elemento al final
+
+        if(counter<n){
+            this.data[counter++]=(int)element;
+        }else{
+            //primero revisa si hay espacio
+            for (int i = 0; i <counter-1 ; i++) {
+                if (data[i]== 0){
+                    data[i]= data[i+1];
+                    data[i+1]=0;
+                    //this.counter=counter-1;
                 }
             }
-
-            if (this.data[this.counter - 1] == 0) {
-                this.data[this.counter - 1] = (Integer)element;
+            if (this.data[counter-1]== 0){
+                this.data[counter-1]=(int)element;
             }
-        }
 
+        }
     }
 
     @Override
@@ -64,9 +67,7 @@ public class Vector implements VectorList{
     }
 
     @Override
-    public boolean remove(Object element) {
-        return false;
-    }
+    public boolean remove(Object element) {return false;}
 
     @Override
     public Object remove(int index) {
@@ -99,8 +100,8 @@ public class Vector implements VectorList{
 
     @Override
     public int indexOf(Object element) {
-        for(int i = 0; i < this.counter; ++i) {
-            if (this.data[i] == (Integer)element) {
+        for (int i = 0; i <counter ; i++) {
+            if (data[i]== (int)element){
                 return i;
             }
         }
@@ -110,7 +111,7 @@ public class Vector implements VectorList{
 
     @Override
     public Object get(int index) {
-            //this.data[index]=(int)element;
+        //this.data[index]=(int)element;
         return this.data[index];
     }
 

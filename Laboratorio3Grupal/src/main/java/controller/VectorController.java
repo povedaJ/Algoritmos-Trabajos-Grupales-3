@@ -26,9 +26,9 @@ public class VectorController {
     void addIndexOnAction(ActionEvent event) {
         //inserta elemento en la posicion dada  //el valor del elemento no cambia, por el momento es 50
         if (isValid()) {
-            int i = (int) Integer.valueOf(this.maxField.getText());
+            int i= (int) Integer.valueOf(this.maxField.getText());
 
-            int result = 50;  //da el valor de posision i
+            int result= 50;  //da el valor de posision i
             vector.add(i, result);
             this.textArea.setText("The added element is: " + result + "\n" + vector.toString());
 
@@ -42,10 +42,10 @@ public class VectorController {
 
     @FXML
     void addVlueOnAction(ActionEvent event) {
-        //inserta elemento al final
+        //inserta un elemento al final
         if (isValid()) {
             vector.add(Integer.valueOf(this.maxField.getText()));
-            this.textArea.setText("Element added successfully" + vector.toString());
+            this.textArea.setText("Element added successfully"+vector.toString());
         } else {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("Please complete the info and try again");
@@ -62,11 +62,11 @@ public class VectorController {
 
     @FXML
     void containsOnAction(ActionEvent event) {
-//Si el elemento existe
+        //Si el elemento existe
         if (isValid()) {
-            if (vector.contains(Integer.valueOf(this.maxField.getText()))) {
+            if(vector.contains(Integer.valueOf(this.maxField.getText()))){
                 textArea.setText("The element exists");
-            } else {
+            }else{
                 textArea.setText("The element don't exist");
             }
         } else {
@@ -124,14 +124,12 @@ public class VectorController {
             alert.setContentText("Please complete the info and try again");
             alert.showAndWait();
         }
-
     }
 
     @FXML
     void sizeOnAction(ActionEvent event) {
 
         if (isValid()) {
-
             textArea.setText("The vector size is : " + vector.size());
         } else {
             alert.setAlertType(Alert.AlertType.ERROR);

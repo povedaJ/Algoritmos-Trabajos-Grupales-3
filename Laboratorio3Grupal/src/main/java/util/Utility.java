@@ -14,10 +14,10 @@ public class Utility {
 
     //son 25 nombres de paises
     private static String[] paises = {"Argentina", "Colombia", "Costa Rica", "Portugal", "Chile",
-                                      "Rusia", "Ecuador", "India", "Bahamas", "Belice",
-                                      "Peru", "Cuba", "Alemania", "El Salvador", "Granada",
-                                      "Guatemala", "Guyana", "Haití", "Honduras", "Jamaica",
-                                      "México", "Nicaragua", "Panamá", "Paraguay", "República Dominicana"};
+            "Rusia", "Ecuador", "India", "Bahamas", "Belice",
+            "Peru", "Cuba", "Alemania", "El Salvador", "Granada",
+            "Guatemala", "Guyana", "Haití", "Honduras", "Jamaica",
+            "México", "Nicaragua", "Panamá", "Paraguay", "República Dominicana"};
 
     //static initializer
     static {
