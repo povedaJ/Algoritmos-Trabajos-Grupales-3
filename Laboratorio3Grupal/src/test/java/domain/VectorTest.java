@@ -59,6 +59,7 @@ public class VectorTest {
         vector.add(5,40);
         vector.remove(0);
         vector.add(0,70);
+        //vector.add(100); //prueba
         System.out.println("Vector with new values "+vector.toString());
 
     }

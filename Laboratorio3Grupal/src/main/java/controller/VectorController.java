@@ -24,12 +24,33 @@ public class VectorController {
 
     @FXML
     void addIndexOnAction(ActionEvent event) {
+        //inserta elemento en la posicion dada  //el valor del elemento no cambia, por el momento es 50
+        if (isValid()) {
+            int i= (int) Integer.valueOf(this.maxField.getText());
+
+            int result= 50;  //da el valor de posision i
+            vector.add(i, result);
+            this.textArea.setText("The added element is: " + result + "\n" + vector.toString());
+
+        } else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the info and try again");
+            alert.showAndWait();
+        }
 
     }
 
     @FXML
     void addVlueOnAction(ActionEvent event) {
-
+        //inserta elemento al final
+        if (isValid()) {
+            vector.add(Integer.valueOf(this.maxField.getText()));
+            this.textArea.setText("Element added successfully"+vector.toString());
+        } else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the info and try again");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -41,7 +62,18 @@ public class VectorController {
 
     @FXML
     void containsOnAction(ActionEvent event) {
-
+        //Si el elemento existe
+        if (isValid()) {
+            if(vector.contains(Integer.valueOf(this.maxField.getText()))){
+                textArea.setText("The element exists");
+            }else{
+                textArea.setText("The element don't exist");
+            }
+        } else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the info and try again");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -66,19 +98,38 @@ public class VectorController {
 
     @FXML
     void removeIndexOnAction(ActionEvent event) {
-
+        if (isValid()) {
+            int i= (int) Integer.valueOf(this.maxField.getText());
+            this.textArea.setText("The removed element is: "+vector.remove(i)+"\n"+vector.toString());
+        } else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the info and try again");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void removeValueOnAction(ActionEvent event) {
-
+        //recibe un valor y lo elimina del vector
+        if (isValid()) {
+            int i= (int) Integer.valueOf(this.maxField.getText());
+            int resul= vector.indexOf(i); //busca la posicion del valor
+            if(resul==-1){
+                this.textArea.setText("Element not found");
+            }else {
+                this.textArea.setText("The removed element is: " + vector.remove(resul) + "\n" + vector.toString());
+            }
+        } else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Please complete the info and try again");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void sizeOnAction(ActionEvent event) {
 
         if (isValid()) {
-
             textArea.setText("The vector size is : " + vector.size());
         } else {
             alert.setAlertType(Alert.AlertType.ERROR);

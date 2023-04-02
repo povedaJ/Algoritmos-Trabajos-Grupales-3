@@ -39,10 +39,24 @@ public class Vector implements VectorList{
 
     @Override
     public void add(Object element) {
+        //pone el elemento al final
+
         if(counter<n){
             this.data[counter++]=(int)element;
-        }
+        }else{
+            //primero revisa si hay espacio
+            for (int i = 0; i <counter-1 ; i++) {
+                if (data[i]== 0){
+                    data[i]= data[i+1];
+                    data[i+1]=0;
+                    //this.counter=counter-1;
+                }
+            }
+            if (this.data[counter-1]== 0){
+                this.data[counter-1]=(int)element;
+            }
 
+        }
     }
 
     @Override
@@ -53,9 +67,7 @@ public class Vector implements VectorList{
     }
 
     @Override
-    public boolean remove(Object element) {
-        return false;
-    }
+    public boolean remove(Object element) {return false;}
 
     @Override
     public Object remove(int index) {
@@ -88,7 +100,13 @@ public class Vector implements VectorList{
 
     @Override
     public int indexOf(Object element) {
-        return 0;
+        for (int i = 0; i <counter ; i++) {
+            if (data[i]== (int)element){
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
