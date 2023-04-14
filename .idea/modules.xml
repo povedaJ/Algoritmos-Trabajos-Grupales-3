@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Algoritmos-Trabajos-Grupales-3.iml" filepath="$PROJECT_DIR$/.idea/Algoritmos-Trabajos-Grupales-3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4/Lab4.iml" filepath="$PROJECT_DIR$/Lab4/Lab4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab4/lab.iml" filepath="$PROJECT_DIR$/lab4/lab.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab1GRUPAL/lab1.iml" filepath="$PROJECT_DIR$/Lab1GRUPAL/lab1.iml" />
       <module fileurl="file://$PROJECT_DIR$/I.S.2023.APA.IF-3001.021-Lab2-master/lab2.iml" filepath="$PROJECT_DIR$/I.S.2023.APA.IF-3001.021-Lab2-master/lab2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Laboratorio3Grupal/lab3.iml" filepath="$PROJECT_DIR$/Laboratorio3Grupal/lab3.iml" />
