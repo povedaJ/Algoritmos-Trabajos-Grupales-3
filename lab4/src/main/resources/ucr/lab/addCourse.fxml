@@ -12,7 +12,7 @@
    <center>
       <AnchorPane id="AnchorPane" prefHeight="356.0" prefWidth="683.0">
          <children>
-            <Pane layoutX="-1.0" prefHeight="82.0" prefWidth="600.0" style="-fx-background-color: orange;" AnchorPane.leftAnchor="50.0">
+            <Pane layoutX="-1.0" prefHeight="82.0" prefWidth="600.0" style="-fx-background-color: #20B2AA;" AnchorPane.leftAnchor="50.0">
                <children>
                   <Text layoutX="200.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Courses">
                      <font>
@@ -23,7 +23,7 @@
             </Pane>
             <Pane layoutY="81.0" prefHeight="182.0" prefWidth="652.0">
                <children>
-                  <Pane layoutX="50.0" layoutY="-3.0" prefHeight="177.0" prefWidth="600.0" style="-fx-background-color: #60AEDB;">
+                  <Pane layoutX="50.0" layoutY="-3.0" prefHeight="177.0" prefWidth="600.0" style="-fx-background-color: #F08080;">
                      <children>
                         <Text layoutX="23.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID:">
                            <font>
@@ -59,17 +59,17 @@
                   </Pane>
                </children>
             </Pane>
-            <Button layoutX="75.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="63.0" prefWidth="169.0" text="Add">
+            <Button layoutX="75.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #20B2AA;" stylesheets="@stylesheet.css" text="Add">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="272.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="63.0" prefWidth="169.0" text="Clean">
+            <Button layoutX="272.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #20B2AA;" stylesheets="@stylesheet.css" text="Clean">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="455.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="63.0" prefWidth="169.0" text="Close">
+            <Button layoutX="455.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #20B2AA;" stylesheets="@stylesheet.css" text="Close">
                <font>
                   <Font size="30.0" />
                </font>
