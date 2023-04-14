@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentController">
+   <center>
+      <AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="1002.0">
+         <children>
+            <Pane layoutX="50.0" prefHeight="82.0" prefWidth="951.0" style="-fx-background-color: orange;" AnchorPane.leftAnchor="50.0">
+               <children>
+                  <Text layoutX="145.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students List (Singly Linked List)">
+                     <font>
+                        <Font name="Arial" size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutY="81.0" prefHeight="250.0" prefWidth="1002.0">
+               <children>
+                  <TableView fx:id="studentTableView" layoutX="48.0" layoutY="2.0" prefHeight="250.0" prefWidth="955.0">
+                    <columns>
+                      <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="Id" />
+                      <TableColumn fx:id="nameTableColumn" prefWidth="347.19993591308594" text="Name" />
+                        <TableColumn fx:id="ageTableColumn" minWidth="0.0" prefWidth="61.5999755859375" text="Age" />
+                        <TableColumn fx:id="addressTableColumn" prefWidth="471.20001220703125" text="Address" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Button layoutX="231.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnAddFirstOnAction" prefHeight="63.0" prefWidth="169.0" text="Add First">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="691.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnContainsOnAction" prefHeight="63.0" prefWidth="169.0" text="Contains">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="420.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="66.0" prefWidth="182.0" text="Remove">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="50.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="63.0" prefWidth="169.0" text="Add">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="416.0" layoutY="344.0" mnemonicParsing="false" onAction="#addSortedOnAction" prefHeight="66.0" prefWidth="266.0" text="Add Sorted">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="618.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnRemoveFirstOnAction" prefHeight="66.0" prefWidth="242.0" text="Remove First">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="50.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnGetFirstOnAction" prefHeight="63.0" prefWidth="169.0" text="Get First">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="231.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnGetLastOnAction" prefHeight="66.0" prefWidth="170.0" text="Get Last">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="871.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnSizeOnAction" prefHeight="66.0" prefWidth="123.0" text="Size">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="871.0" layoutY="423.0" mnemonicParsing="false" onAction="#btClearOnAction" prefHeight="66.0" prefWidth="123.0" text="Clear">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
