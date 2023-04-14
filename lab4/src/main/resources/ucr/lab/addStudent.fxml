@@ -12,7 +12,7 @@
    <center>
       <AnchorPane id="AnchorPane" prefHeight="421.0" prefWidth="673.0">
          <children>
-            <Pane layoutX="9.0" layoutY="10.0" prefHeight="82.0" prefWidth="650.0" style="-fx-background-color: orange;">
+            <Pane layoutX="9.0" layoutY="10.0" prefHeight="82.0" prefWidth="650.0" style="-fx-background-color: #CD5C5C;">
                <children>
                   <Text layoutX="200.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Students">
                      <font>
@@ -23,7 +23,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="91.0" prefHeight="249.0" prefWidth="600.0">
                <children>
-                  <Pane layoutX="50.0" layoutY="-3.0" prefHeight="256.0" prefWidth="600.0" style="-fx-background-color: #60AEDB;">
+                  <Pane layoutX="50.0" layoutY="-3.0" prefHeight="256.0" prefWidth="600.0" style="-fx-background-color: #5DADE2;">
                      <children>
                         <Text layoutX="23.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID:">
                            <font>

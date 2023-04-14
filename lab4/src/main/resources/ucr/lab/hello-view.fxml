@@ -35,7 +35,7 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="ap" prefHeight="694.0" prefWidth="900.0" style="-fx-background-color: #900C3F;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="ap" prefHeight="694.0" prefWidth="900.0" style="-fx-background-color: #801840;" BorderPane.alignment="CENTER">
          <children>
             <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="7.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 4" textAlignment="CENTER" wrappingWidth="1015.94921875">
                <font>
