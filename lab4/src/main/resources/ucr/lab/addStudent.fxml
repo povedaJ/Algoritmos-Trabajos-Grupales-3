@@ -69,17 +69,17 @@
                   </Pane>
                </children>
             </Pane>
-            <Button layoutX="81.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="63.0" prefWidth="169.0" text="Add">
+            <Button layoutX="81.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #CD5C5C;" stylesheets="@stylesheet.css" text="Add">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="268.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="63.0" prefWidth="169.0" text="Clean">
+            <Button layoutX="268.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #CD5C5C;" stylesheets="@stylesheet.css" text="Clean">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="456.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="63.0" prefWidth="169.0" text="Close">
+            <Button layoutX="456.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #CD5C5C;" stylesheets="@stylesheet.css" text="Close">
                <font>
                   <Font size="30.0" />
                </font>

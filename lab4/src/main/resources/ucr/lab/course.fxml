@@ -11,9 +11,9 @@
 
 <BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourseController">
    <center>
-      <AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="1004.0">
+      <AnchorPane id="AnchorPane" prefHeight="533.0" prefWidth="1004.0" style="-fx-background-color: FFE4C4;" stylesheets="@stylesheet.css">
          <children>
-            <Pane layoutX="-1.0" prefHeight="82.0" prefWidth="953.0" style="-fx-background-color: orange;" AnchorPane.leftAnchor="50.0">
+            <Pane layoutX="-1.0" prefHeight="82.0" prefWidth="953.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" AnchorPane.leftAnchor="50.0">
                <children>
                   <Text layoutX="183.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses List (Doubly Linked List)">
                      <font>
@@ -37,52 +37,52 @@
                   </Pane>
                </children>
             </Pane>
-            <Button layoutX="231.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnAddFirstOnAction" prefHeight="63.0" prefWidth="169.0" text="Add First">
+            <Button layoutX="231.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnAddFirstOnAction" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Add First">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="691.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnContainsOnAction" prefHeight="63.0" prefWidth="169.0" text="Contains">
+            <Button layoutX="691.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnContainsOnAction" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Contains">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="420.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="66.0" prefWidth="182.0" text="Remove">
+            <Button layoutX="420.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="66.0" prefWidth="182.0" style="-fx-background-color: #00CED1;" styleClass="menu-button" stylesheets="@stylesheet.css" text="Remove">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="50.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="63.0" prefWidth="169.0" text="Add">
+            <Button layoutX="50.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Add">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="416.0" layoutY="356.0" mnemonicParsing="false" onAction="#addSortedOnAction" prefHeight="66.0" prefWidth="266.0" text="Add Sorted">
+            <Button layoutX="416.0" layoutY="356.0" mnemonicParsing="false" onAction="#addSortedOnAction" prefHeight="66.0" prefWidth="266.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Add Sorted">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="618.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnRemoveFirstOnAction" prefHeight="66.0" prefWidth="242.0" text="Remove First">
+            <Button layoutX="618.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnRemoveFirstOnAction" prefHeight="66.0" prefWidth="242.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Remove First">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="50.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnGetFirstOnAction" prefHeight="63.0" prefWidth="169.0" text="Get First">
+            <Button layoutX="50.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnGetFirstOnAction" prefHeight="63.0" prefWidth="169.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Get First">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="231.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnGetLastOnAction" prefHeight="66.0" prefWidth="170.0" text="Get Last">
+            <Button layoutX="231.0" layoutY="435.0" mnemonicParsing="false" onAction="#btnGetLastOnAction" prefHeight="66.0" prefWidth="170.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Get Last">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="871.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnSizeOnAction" prefHeight="66.0" prefWidth="123.0" text="Size">
+            <Button layoutX="871.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnSizeOnAction" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Size">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button layoutX="871.0" layoutY="435.0" mnemonicParsing="false" onAction="#btClearOnAction" prefHeight="66.0" prefWidth="123.0" text="Clear">
+            <Button layoutX="871.0" layoutY="435.0" mnemonicParsing="false" onAction="#btClearOnAction" prefHeight="66.0" prefWidth="123.0" style="-fx-background-color: #00CED1;" stylesheets="@stylesheet.css" text="Clear">
                <font>
                   <Font size="30.0" />
                </font>

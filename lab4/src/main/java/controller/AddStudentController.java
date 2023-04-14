@@ -49,7 +49,7 @@ public class AddStudentController
     public void onKeyTypeAgeValidation(Event event) { // para que solo me deje agregar el tipo de dato que recibe
     }
 
-    @FXML
+    @Deprecated
     public void btnAdd(ActionEvent actionEvent) {
         alert.setHeaderText("Adding students...");
         try{
@@ -86,11 +86,10 @@ public class AddStudentController
         return !this.textFieldID.getText().isEmpty();
     }
 
-    @FXML
+    @Deprecated
     public void btnClean(ActionEvent actionEvent) {
     }
 
-    @FXML
     public void btnCloseOnAction(ActionEvent actionEvent) {
         loadPage("student.fxml");
     }

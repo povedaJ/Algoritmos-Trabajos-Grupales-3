@@ -10,7 +10,7 @@
 
 <BorderPane fx:id="bp" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddCourseController">
    <center>
-      <AnchorPane id="AnchorPane" prefHeight="356.0" prefWidth="683.0">
+      <AnchorPane id="AnchorPane" prefHeight="356.0" prefWidth="683.0" style="-fx-background-color: FFE4C4;" stylesheets="@stylesheet.css">
          <children>
             <Pane layoutX="-1.0" prefHeight="82.0" prefWidth="600.0" style="-fx-background-color: #20B2AA;" AnchorPane.leftAnchor="50.0">
                <children>
