@@ -140,6 +140,7 @@ public class SinglyLinkedList implements List {
         }
         Node aux = first;
         int index = 1;
+
         while(aux!=null){
             if(util.Utility.compare(aux.data, element)==0) return index;
             index++;
@@ -203,7 +204,7 @@ public class SinglyLinkedList implements List {
     }
 
     @Override
-    public Node getNode(int index) throws ListException {
+    public Node getNode(int index) throws ListException { //da un indice y devuelve el nodo
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }

@@ -41,10 +41,24 @@ public class SinglyLinkedListTest {
             System.out.println("\n");
 
             //iii.
+            System.out.println("El estudiante Carlos con Id=8 se encuentra en la posicion: "+list.indexOf(new Student("8", "Carlos", 25, "San Carlos")));
+            System.out.println("El estudiante Carlos con Id=100 se encuentra en la posicion: "+list.indexOf(new Student("100", "Carlos", 25, "San Carlos")));
+            System.out.println("\n");
 
-            //iv.
+            //iv.   //Ordenar con metodo sort
+            list.sort();
 
             //v.
+            list.remove(new Student("1", "Maria", 20, "Cartago"));
+
+            list.remove(new Student("3", "Laura", 20, "Paraíso"));
+
+            list.remove(new Student("5", "Carlos", 21, "Limón"));
+
+            for (int i = 1; i <= list.size(); i++) {
+                System.out.println(list.getNode(i).data);
+            }
+            System.out.println("\n");
 
 
         } catch (ListException e) {
