@@ -80,7 +80,12 @@ public class DoublyLinkedList implements List {
 
     @Override
     public void addInSortedList(Object element) {
-
+        try {
+            add(element);
+            sort();
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -133,9 +138,22 @@ public class DoublyLinkedList implements List {
     }
 
     @Override
-    public void sort() throws ListException {
 
-    }
+        public void sort() throws ListException {
+            if(isEmpty())
+                throw new ListException("Doubly Linked List is empty");
+            for(int i=1;i<=size();i++){
+                for(int j=i+1;j<size();j++){
+                    if(util.Utility.compare(getNode(j).data, getNode(i).data)<0){
+                        //if(util.Utility.lessT(getNode(j).data, getNode(i).data)){
+                        Object aux=getNode(i).data;
+                        getNode(i).data=getNode(j).data;
+                        getNode(j).data=aux;
+                    }//if
+                }//for j
+            }//for i
+        }
+
 
     @Override
     public int indexOf(Object element) throws ListException {
