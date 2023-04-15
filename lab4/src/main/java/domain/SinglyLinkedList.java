@@ -22,8 +22,7 @@ public class SinglyLinkedList implements List {
     }
 
     @Override
-    public void clear() {
-        first = null;    }
+    public void clear() {first = null;    }
 
     @Override
     public boolean isEmpty() {
@@ -62,7 +61,13 @@ public class SinglyLinkedList implements List {
 
     @Override
     public void addFirst(Object element) {
-
+        Node newNode = new Node(element);
+        if (isEmpty()) {
+            first = newNode;
+        } else {
+            newNode.next = first;
+            first = newNode;
+        }
     }
 
     @Override
@@ -104,8 +109,9 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-
-        return null;
+        Object element = first.data;
+        first = first.next;
+        return element;
     }
 
     @Override
@@ -113,11 +119,17 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        return null;
+        remove(getLast());
+
+        return getLast();
     }
 
     @Override
     public void sort() throws ListException {
+        if (isEmpty()) {
+            throw new ListException("SinglyLinkedList is empty");
+        }
+
 
     }
 
@@ -141,7 +153,7 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        return null;
+        return first.data;
     }
 
     @Override
@@ -149,7 +161,12 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        return null;
+        Node aux = first;
+        while (aux.next != null) {
+            aux = aux.next;
+        }
+        // al salir del while esta en el ultimo nodo
+        return aux.data;
     }
 
     @Override
@@ -157,7 +174,9 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        return null;
+
+            return null;
+
     }
 
     @Override
@@ -165,7 +184,22 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        return null;
+        Node aux = first;
+
+        if (util.Utility.compare(getLast(), element)==0) {
+            return " This element is the last in the list, don't have next.";
+        } else {
+
+            while (aux.next != null) {
+
+                if (util.Utility.compare(aux, element)==0) {
+                    return aux.next.data;
+                }
+                aux = aux.next;
+
+            }
+            return "This element don't exist in the list.";
+        }
     }
 
     @Override
@@ -188,7 +222,7 @@ public class SinglyLinkedList implements List {
         String result="Singly Linked List Content\n";
         Node aux = first;
         while(aux!=null){
-            result+=aux.data+" ";
+            result+=aux.data+"\n ";
             aux = aux.next; //muevo aux al sgte nodo
         }
         return result;

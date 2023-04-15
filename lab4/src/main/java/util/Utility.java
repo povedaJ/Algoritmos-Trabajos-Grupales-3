@@ -99,10 +99,14 @@ public class Utility {
                 Character ch1 = (Character)a; Character ch2 = (Character)b;
                 return ch1.compareTo(ch2)<0? -1 :
                         ch1.compareTo(ch2)>0? 1 : 0;
+                //? si : no
             case "Student":
                 Student st1 = (Student)a; Student st2 = (Student)b;
                 return st1.getId().compareTo(st2.getId())<0? -1 :
                         st1.getId().compareTo(st2.getId())>0? 1 : 0;
+                //less  st1.getId().compareTo(st2.getId())<0? -1
+            //greater  st1.getId().compareTo(st2.getId())>0? 1
+            //igual = 0
             case "Course":
                 Course course1 = (Course)a; Course course2 = (Course)b;
                 return course1.getId().compareTo(course2.getId())<0? -1 :
