@@ -115,8 +115,10 @@ public class DoublyLinkedList implements List {
     public Object removeFirst() throws ListException {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
+        }else {
+            first = first.next;
+            first.prev = null; //pq el anterior del 1er nodo quede apuntado a nulo
         }
-
         return null;
     }
 
@@ -173,10 +175,13 @@ public class DoublyLinkedList implements List {
 
     @Override
     public Object getPrev(Object element) throws ListException {
+        Node newNode = new Node(element);
         if(isEmpty()){
-            throw new ListException("DoublyLinked List is empty");
+            throw new ListException("Singly Linked List is empty");
+        }else {
+            newNode=newNode.prev;
         }
-        return null;
+        return newNode;
     }
 
     @Override
