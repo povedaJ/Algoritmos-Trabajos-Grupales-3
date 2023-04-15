@@ -35,7 +35,6 @@ public class SinglyLinkedListTest {
 
             //ii.
             for (int i = 1; i <= list.size(); i++) {
-
                 System.out.println("El elemento en la posición " + i + " es: " + list.getNode(i).data);
             }
             System.out.println("\n");
@@ -45,10 +44,14 @@ public class SinglyLinkedListTest {
             System.out.println("El estudiante Carlos con Id=100 se encuentra en la posicion: "+list.indexOf(new Student("100", "Carlos", 25, "San Carlos")));
             System.out.println("\n");
 
-            //iv.   //Ordenar con metodo sort
+            //B.iv.   //Ordenar con metodo sort
             list.sort();
 
-            //v.
+            //C.
+            System.out.println("Cuantos Carlos tenemos en la lista: "+ countNames(list,"Carlos"));
+            System.out.println("\n");
+
+            //B.v.
             list.remove(new Student("1", "Maria", 20, "Cartago"));
 
             list.remove(new Student("3", "Laura", 20, "Paraíso"));
@@ -60,12 +63,63 @@ public class SinglyLinkedListTest {
             }
             System.out.println("\n");
 
+            //c.
+            //System.out.println("Cuantos Carlos tenemos en la lista: "+ countNames(list,"Carlos"));
+            //System.out.println("Cuantos Maria tenemos en la lista: "+ countNames(list,"Maria"));
+
+            //d.
+            System.out.println("¿En la lista existe una estudiante con el nombre Karla? " +findNames(list,"Karla"));
+            System.out.println("¿En la lista existe una estudiante con el nombre Fabiana? "+findNames(list,"Fabiana"));
 
         } catch (ListException e) {
             throw new RuntimeException(e);
         }
 
+    }
 
+    public boolean findNames(SinglyLinkedList list, String name) throws ListException {
+        for (int i = 1; i <= list.size(); i++) {
+            String aux = list.getNode(i).data.toString();
+            int count=0;  int k=0;
+            for (int j = 0; j < aux.length(); j++) {
+                if(k<name.length() && aux.charAt(j)==name.charAt(k)){
+                    count++;
+                    k++;
+                    if (count==name.length()+1){
+                        count--;
+                    }
+                }else{
+                    k=0;
+                }
+            }
+            if (count==name.length()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int countNames(SinglyLinkedList list, String name) throws ListException {
+        int result=0;
+        for (int i = 1; i <= list.size(); i++) {
+            String aux = list.getNode(i).data.toString();
+            int count=0;  int k=0;
+            for (int j = 0; j < aux.length(); j++) {
+                if(k<name.length() && aux.charAt(j)==name.charAt(k)){
+                    count++;
+                    k++;
+                    if (count==name.length()+1){
+                        count--;
+                    }
+                }else{
+                    k=0;
+                }
+            }
+            if (count==name.length()){
+                result++;
+            }
+        }
+        return result;
     }
 
     @Test
