@@ -18,7 +18,7 @@ public class DoublyLinkedListTest {
         list.add(new Course("IF-4101","Lenguajes app Comerciales",4));
         list.add(new Course("IF-3100","Sistemas de informacion",3));
 
-
+        /*
         System.out.println("¿Existe Informática Aplicada, Id=IF-6201?"+list.contains(new Course("IF-6201","Informática Aplicada",4)));
         System.out.println("¿Sistemas de informacion, Id=IF-3100?"+list.contains(new Course("IF-3100","Sistemas de informacion",4)));
         for (int i = 1; i <= list.size(); i++) {
@@ -35,7 +35,7 @@ public class DoublyLinkedListTest {
             System.out.println("El elemento en la posicion " +i+" es: "+list.getNode(i).data);
         }
         }
-
-    }
+*/
+    }}
 
 
