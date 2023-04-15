@@ -19,23 +19,30 @@ public class DoublyLinkedListTest {
         list.add(new Course("IF-3100","Sistemas de informacion",3));
 
 
-        System.out.println("¿Existe Informática Aplicada, Id=IF-6201?"+list.contains(new Course("IF-6201","Informática Aplicada",4)));
-        System.out.println("¿Sistemas de informacion, Id=IF-3100?"+list.contains(new Course("IF-3100","Sistemas de informacion",4)));
+
+        System.out.println("¿Existe Informática Aplicada, Id=IF-6201?"+list.contains(new Course(
+                "IF-6201","Informática Aplicada",4)));
+        System.out.println("¿Existe Algoritmos y Estructuras de Datos, Id=IF-3001?"+list.contains(new Course(
+                "IF-3001","Algoritmos",4)));
+        System.out.println("¿Existe Sistemas Operativos, Id=IF-4001?"+list.contains(new Course(
+                "IF-4001","Sistemas Operativos",4)));
+        System.out.println("¿Existe Análisis y Diseño de Sistemas, Id=IF-6100?"+list.contains(new Course(
+                "IF-6100","Existe Análisis y Diseño de Sistemas",4)));
+
         for (int i = 1; i <= list.size(); i++) {
             System.out.println("El elemento en la posicion " +i+" es: "+list.getNode(i).data);
         }
 
-       Course curso= new Course("IF-3001","Algoritmos",4);
-        System.out.println(list.contains(curso) ? "El curso Algoritmos y Estructuras de Datos Id=IF-3001 se encuentra en la\n" +
-                "posición: " + list.indexOf(curso) : "El curso Algoritmos y Estructuras  does not exist in list");
+
+        System.out.println(list.contains( new Course("IF-3001","Algoritmos",4)) ? "El curso Algoritmos y Estructuras de Datos Id=IF-3001 se encuentra en la\n" +
+                "posición: " + list.indexOf( new Course("IF-3001","Algoritmos",4)) : "El curso Algoritmos y Estructuras  does not exist in list");
+
+        System.out.println(list.contains( new Course("IF-6100"," Análisis y Diseño de Sistemas ",4)) ? "El curso Algoritmos y Estructuras de Datos Id=IF-3001 se encuentra en la\n" +
+                "posición: " + list.indexOf( new Course("IF-6100","Análisis y Diseño de Sistemas ",4)) : "El Análisis y Diseño de Sistemas  does not exist in list");
 
 
         list.sort();
-        for (int i = 1; i <= list.size(); i++) {
-            System.out.println("El elemento en la posicion " +i+" es: "+list.getNode(i).data);
-        }
-        }
+
+    }
 
 }
-
-

@@ -12,14 +12,25 @@ public class SinglyLinkedListTest {
     @Test
     public void test1() {
         SinglyLinkedList list = new SinglyLinkedList();
-        list.add(new Student("1", "Maria", 20, "Cartago"));
-        list.add(new Student("2", "Carlos", 22, "San Jose"));
-        list.add(new Student("3", "Laura", 20, "Paraíso"));
-        list.add(new Student("4", "Paula", 18, "Turrialba"));
+//        list.add(new Student("1", "Maria", 20, "Cartago"));
+//        list.add(new Student("2", "Carlos", 22, "San Jose"));
+//        list.add(new Student("3", "Laura", 20, "Paraíso"));
+//        list.add(new Student("4", "Paula", 18, "Turrialba"));
+//        list.add(new Student("5", "Carlos", 21, "Limón"));
+//        list.add(new Student("6", "Fabiana", 19, "Paraíso"));
+//        list.add(new Student("7", "Maria", 23, "Guanacaste"));
+//        list.add(new Student("8", "Carlos", 25, "San Carlos"));
+//        list.add(new Student("9", "Laura", 20, "Turrialba"));
+//        list.add(new Student("10", "Pedro", 24, "Heredia"));
         list.add(new Student("5", "Carlos", 21, "Limón"));
         list.add(new Student("6", "Fabiana", 19, "Paraíso"));
         list.add(new Student("7", "Maria", 23, "Guanacaste"));
         list.add(new Student("8", "Carlos", 25, "San Carlos"));
+        list.add(new Student("1", "Maria", 20, "Cartago"));
+        list.add(new Student("2", "Carlos", 22, "San Jose"));
+        list.add(new Student("3", "Laura", 20, "Paraíso"));
+        list.add(new Student("4", "Paula", 18, "Turrialba"));
+
         list.add(new Student("9", "Laura", 20, "Turrialba"));
         list.add(new Student("10", "Pedro", 24, "Heredia"));
 
@@ -41,10 +52,35 @@ public class SinglyLinkedListTest {
             System.out.println("\n");
 
             //iii.
+            Student student = new Student("8", "Carlos", 25, " San Carlos");
+            System.out.println(list.contains(student) ? "El estudiante Carlos con Id=8 se encuentra en la posicion: " +
+                    +list.indexOf(student) : "El estudiante Carlos con Id=8 does not exist in list");
 
+            student = new Student("100", "Carlos", 25, " San Carlos");
+            System.out.println(list.contains(student) ? "El estudiante Carlos con Id=100 se encuentra en la posicion: " +
+                    +list.indexOf(student) : "El estudiante Carlos con Id=100 does not exist in list");
+            System.out.println("\n");
             //iv.
+            list.sort();
+            for (int i = 1; i <= list.size(); i++) {
 
+                System.out.println("El elemento en la posición " + i + " es: " + list.getNode(i).data);
+            }
+            System.out.println("\n");
             //v.
+            System.out.println("Deleting....");
+            //list.removeFirst();
+            student = new Student("1", "Maria", 20, " Cartago");
+            list.remove(student);
+            student = new Student("3", "Laura", 20, "Paraíso");
+            list.remove(student);
+            student = new Student("5", "Carlos", 21, "Limón");
+            list.remove(student);
+            for (int i = 1; i <= list.size(); i++) {
+
+                System.out.println("El elemento en la posición " + i + " es: " + list.getNode(i).data);
+            }
+            System.out.println("\n");
 
 
         } catch (ListException e) {
@@ -90,5 +126,46 @@ public class SinglyLinkedListTest {
         }
     }
 
+    private int countNames(SinglyLinkedList list, String name) {
 
+        int i = 0;
+
+        try {
+
+            Node aux = (Node) list.getNode(1);
+
+            while (aux.next != null) {
+
+                if (util.Utility.compare(aux.data, name)==0) {
+                    i++;
+                }
+
+                aux = aux.next;
+            }
+
+        } catch (ListException ex) {
+            throw new RuntimeException(ex);        }
+
+        return i;
+    }
+
+    private boolean findNames(SinglyLinkedList list, String name) {
+
+        try {
+
+            Node aux = (Node) list.getNode(1);
+
+            while (aux.next != null) {
+
+                if (util.Utility.compare(aux.data, name)==0) {
+                    return true;
+                }
+
+                aux = aux.next;
+            }
+
+        } catch (ListException ex) {
+            throw new RuntimeException(ex);        }
+        return false;
+    }
 }
