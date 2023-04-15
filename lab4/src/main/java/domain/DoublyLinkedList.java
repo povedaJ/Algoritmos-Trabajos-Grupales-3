@@ -10,7 +10,7 @@ public class DoublyLinkedList implements List {
     @Override
     public int size() throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("Doubly Linked List is empty");
         }
         Node aux = first;
         int count = 0;
@@ -26,14 +26,12 @@ public class DoublyLinkedList implements List {
         first = null;    }
 
     @Override
-    public boolean isEmpty() {
-        return first==null;
-    }
+    public boolean isEmpty() {return first==null;}
 
     @Override
     public boolean contains(Object element) throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("Doubly Linked List is empty");
         }
         Node aux = first;
         while(aux!=null){
@@ -64,7 +62,15 @@ public class DoublyLinkedList implements List {
 
     @Override
     public void addFirst(Object element) {
+        Node newNode = new Node(element);
+        if (isEmpty()) {
+            first = newNode;
+        } else {
+            newNode.next = first;
+            first.prev=newNode;
+            first = newNode;
 
+        }
     }
 
     @Override
@@ -119,7 +125,9 @@ public class DoublyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        return null;
+        remove(getLast());
+
+        return getLast();
     }
 
     @Override
@@ -145,23 +153,28 @@ public class DoublyLinkedList implements List {
     @Override
     public Object getFirst() throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("Doubly Linked List is empty");
         }
-        return null;
+        return first.data;
     }
 
     @Override
     public Object getLast() throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("Doubly Linked List is empty");
         }
-        return null;
+        Node aux = first;
+        while (aux.next != null) {
+            aux = aux.next;
+        }
+        // al salir del while esta en el ultimo nodo
+        return aux.data;
     }
 
     @Override
     public Object getPrev(Object element) throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("DoublyLinked List is empty");
         }
         return null;
     }
@@ -169,15 +182,30 @@ public class DoublyLinkedList implements List {
     @Override
     public Object getNext(Object element) throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("Doubly Linked List is empty");
         }
-        return null;
+        Node aux = first;
+
+        if (util.Utility.compare(getLast(), element)==0) {
+            return " This element is the last in the list, don't have next.";
+        } else {
+
+            while (aux.next != null) {
+
+                if (util.Utility.compare(aux, element)==0) {
+                    return aux.next.data;
+                }
+                aux = aux.next;
+
+            }
+            return "This element don't exist in the list.";
+        }
     }
 
     @Override
     public Node getNode(int index) throws ListException {
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
+            throw new ListException("Doubly Linked List is empty");
         }
         Node aux = first;
         int i = 1;
@@ -191,7 +219,7 @@ public class DoublyLinkedList implements List {
 
     @Override
     public String toString() {
-        String result="Singly Linked List Content\n";
+        String result="Doubly Linked List Content\n";
         Node aux = first;
         while(aux!=null){
             result+=aux.data+" ";

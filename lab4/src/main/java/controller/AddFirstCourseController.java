@@ -1,6 +1,9 @@
 package controller;
 
-import domain.*;
+import domain.Course;
+import domain.DoublyLinkedList;
+import domain.ListException;
+import domain.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +15,7 @@ import ucr.lab.HelloApplication;
 
 import java.io.IOException;
 
-public class AddCourseController {
+public class AddFirstCourseController {
 
     @FXML
     private BorderPane bp;
@@ -25,14 +28,13 @@ public class AddCourseController {
 
     @FXML
     private TextField textFieldName;
-
     private DoublyLinkedList courseList;
     private Alert alert;
     @FXML
     public void initialize() {
         //cargamos la lista desde la clase Utility
         this.courseList = util.Utility.getCourseList();
-        this.alert = util.FXUtility.alert("Courses Doubly Linked List", "Add courses...");
+        this.alert = util.FXUtility.alert("Courses Doubly Linked List", "Add course...");
     }
 
     private void loadPage(String page) {
@@ -50,7 +52,7 @@ public class AddCourseController {
 
     @FXML
     void btnAdd(ActionEvent event) {
-        alert.setHeaderText("Adding students...");
+        alert.setHeaderText("Adding course en first position ...");
         try {
             if (isValid()) {
                 int credits = Integer.parseInt(this.textFieldCredits.getText());
@@ -59,9 +61,9 @@ public class AddCourseController {
                         this.textFieldName.textProperty().getValue(),
                         credits);
                 if (courseList.isEmpty() || !courseList.contains(newCourse)) {
-                    courseList.add(newCourse);
+                    courseList.addFirst(newCourse);
                     alert.setAlertType(Alert.AlertType.INFORMATION);
-                    alert.setContentText("The course was added to the list");
+                    alert.setContentText("The course was added to the top of the list");
                     //tenemos que settear la lista de la clase Utility
                     //actualizo la lista global
                     util.Utility.setCourseList(courseList);
@@ -74,7 +76,7 @@ public class AddCourseController {
                 alert.setContentText("Complete the form with \nthe information, please");
             }
             alert.showAndWait();
-            btnClean(event); //llama al boton de limpiar
+            btnCloseOnAction(event); //llama al boton de limpiar
         } catch (ListException ex) {
             System.out.println(ex.getMessage());
         }
@@ -88,7 +90,7 @@ public class AddCourseController {
     }
 
     @FXML
-    void btnCloseOnAction(ActionEvent event)  {
+    void btnCloseOnAction(ActionEvent event) {
         loadPage("course.fxml");
     }
 
