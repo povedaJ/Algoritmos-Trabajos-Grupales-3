@@ -193,7 +193,11 @@ public class CourseController {
 
     @FXML
     void btnRemoveOnAction(ActionEvent event) {
-        loadPage("removeCourse.fxml");
+        if (courseList.isEmpty()) {
+            alert.setContentText("Course list is empty");
+            alert.showAndWait();
+        } else {
+        loadPage("removeCourse.fxml");}
 
     }
 

@@ -73,6 +73,10 @@ public class StudentController {
 
     @FXML
     void addSortedOnAction(ActionEvent event) {
+        if (studentList.isEmpty()) {
+            alert.setContentText("Student list is empty");
+            alert.showAndWait();
+        }
 
     }
 
@@ -115,6 +119,12 @@ public class StudentController {
 
     @FXML
     void btnContainsOnAction(ActionEvent event) {
+        if (studentList.isEmpty()) {
+            alert.setContentText("Student list is empty");
+            alert.showAndWait();
+        } else {
+            loadPage("containsStudent.fxml");
+        }
 
     }
 
