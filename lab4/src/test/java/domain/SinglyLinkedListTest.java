@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import static org.testng.Assert.*;
 
 public class SinglyLinkedListTest {
-
+    public  Student student;
     @Test
     public void test1() {
         SinglyLinkedList list = new SinglyLinkedList();
@@ -52,7 +52,7 @@ public class SinglyLinkedListTest {
             System.out.println("\n");
 
             //iii.
-            Student student = new Student("8", "Carlos", 25, " San Carlos");
+           student = new Student("8", "Carlos", 25, " San Carlos");
             System.out.println(list.contains(student) ? "El estudiante Carlos con Id=8 se encuentra en la posicion: " +
                     +list.indexOf(student) : "El estudiante Carlos con Id=8 does not exist in list");
 
@@ -81,6 +81,15 @@ public class SinglyLinkedListTest {
                 System.out.println("El elemento en la posición " + i + " es: " + list.getNode(i).data);
             }
             System.out.println("\n");
+
+            System.out.println( "Buscamos cuantos Carlos tenemos en la lista: "
+                    +countNames(list,"Carlos"));
+
+           // ¿En la lista existe una estudiante con el nombre Karla? false
+            System.out.println("¿En la lista existe una estudiante con el nombre Karla? "+findNames(list,"Karla"));
+            System.out.println("¿En la lista existe una estudiante con el nombre Fabiana? "+findNames(list,"Fabiana"));
+
+
 
 
         } catch (ListException e) {
@@ -135,8 +144,8 @@ public class SinglyLinkedListTest {
             Node aux = (Node) list.getNode(1);
 
             while (aux.next != null) {
-
-                if (util.Utility.compare(aux.data, name)==0) {
+                student= (Student) aux.data;
+                if (util.Utility.compare(student.getName(),name)==0) {
                     i++;
                 }
 
@@ -156,8 +165,8 @@ public class SinglyLinkedListTest {
             Node aux = (Node) list.getNode(1);
 
             while (aux.next != null) {
-
-                if (util.Utility.compare(aux.data, name)==0) {
+                student= (Student) aux.data;
+                if (util.Utility.compare(student.getName(),name)==0) {
                     return true;
                 }
 
