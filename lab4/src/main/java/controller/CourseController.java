@@ -113,9 +113,11 @@ public class CourseController {
 
     @FXML
     void btnContainsOnAction(ActionEvent event) {
-        if(!courseList.isEmpty()){
-        loadPage("containsCourse.fxml");
-        }
+        if (courseList.isEmpty()) {
+            alert.setContentText("Course list is empty");
+            alert.showAndWait();
+        }else{loadPage("containsCourse.fxml");}
+
 
     }
 
