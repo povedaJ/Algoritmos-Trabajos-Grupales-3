@@ -124,13 +124,17 @@ public class DoublyLinkedList implements List {
 
     @Override
     public Object removeFirst() throws ListException {
-        if(isEmpty()){
+        if (isEmpty()) {
             throw new ListException("Singly Linked List is empty");
-        }else {
-            first = first.next;
-            first.prev = null; //pq el anterior del 1er nodo quede apuntado a nulo
+        } else {
+            if (first.next == null) {
+                first = null;
+            } else {
+                first = first.next;
+                first.prev = null; //pq el anterior del 1er nodo quede apuntado a nulo
+            }
         }
-        return null;
+        return  null;
     }
 
     @Override

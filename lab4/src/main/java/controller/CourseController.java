@@ -113,6 +113,7 @@ public class CourseController {
 
     @FXML
     void btnContainsOnAction(ActionEvent event) {
+        loadPage("containsCourse.fxml");
 
     }
 
@@ -155,6 +156,34 @@ public class CourseController {
 
     @FXML
     void btnRemoveFirstOnAction(ActionEvent event) {
+        if (courseList.isEmpty()) {
+            alert.setContentText("Course list is empty");
+            alert.showAndWait();
+        } else {
+
+
+            try {
+                String decision = util.FXUtility.alertYesNo("Course List", "The fist item from the list is :  " + courseList.getFirst(), "Remove this item?");
+                if (decision.equals("YES")) {
+                    courseList.removeFirst();
+                    alert = util.FXUtility.alert("course List", "Remove first element");
+                    alert.setAlertType(Alert.AlertType.INFORMATION);
+                    alert.setContentText("The first element of the list was removed");
+                    alert.showAndWait();
+                    courseTableView.getItems().clear();
+                    updateTableView(courseList);
+
+
+                }
+                if (decision.equals("NO")) {
+                    alert.setContentText("No item has been removed");
+                    alert.showAndWait();
+                }
+
+            } catch (ListException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 
