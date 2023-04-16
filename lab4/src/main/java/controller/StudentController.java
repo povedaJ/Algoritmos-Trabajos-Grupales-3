@@ -190,6 +190,11 @@ public class StudentController {
 
     @FXML
     void btnRemoveOnAction(ActionEvent event) {
+        if (studentList.isEmpty()) {
+            alert.setContentText("Student list is empty");
+            alert.showAndWait();
+        } else {
+        loadPage("removeStudent.fxml");}
 
     }
 
