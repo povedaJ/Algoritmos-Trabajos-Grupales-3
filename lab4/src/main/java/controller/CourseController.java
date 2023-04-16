@@ -69,6 +69,7 @@ public class CourseController {
 
     @FXML
     void addSortedOnAction(ActionEvent event) {
+        loadPage("addCourseSorted.fxml");
 
     }
 
@@ -159,6 +160,7 @@ public class CourseController {
 
     @FXML
     void btnRemoveOnAction(ActionEvent event) {
+        loadPage("removeCourse.fxml");
 
     }
 

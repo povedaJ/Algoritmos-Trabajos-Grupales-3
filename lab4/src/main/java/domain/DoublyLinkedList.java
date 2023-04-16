@@ -95,8 +95,14 @@ public class DoublyLinkedList implements List {
         }
         //Caso 1. El elemento a suprimir es el primero de la lista
         if(util.Utility.compare(first.data, element)==0){
-            first = first.next;
-            first.prev = null; //pq el anterior del 1er nodo quede apuntado a nulo
+
+            if(first.next==null){
+                first=null;
+            }else{
+                first = first.next;
+                first.prev = null; //pq el anterior del 1er nodo quede apuntado a nulo
+            }
+
         }else {
             //Caso 2. El elemento puede estar en cualquier parte
             Node prev = first;
