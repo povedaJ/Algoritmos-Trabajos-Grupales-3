@@ -80,11 +80,32 @@ public class SinglyLinkedList implements List {
     @Override
     public void addInSortedList(Object element) {
 
-        try {
-            add(element);
-            sort();
-        } catch (ListException e) {
-            throw new RuntimeException(e);
+        Node newNode = new Node(element);
+        if(isEmpty()){
+            first = newNode;
+        }else{
+            //Cuando first.data es mayor que element
+            if(util.Utility.compare(first.data, element)>0){
+                newNode.next = first;
+                first = newNode;
+            }else{
+                Node prev = first; //rastro o marca
+                Node aux = first.next;
+                boolean added=false;
+                while(aux!=null&&!added){
+                    if(util.Utility.compare(aux.data, element)>0){
+                        prev.next = newNode;
+                        newNode.next = aux;
+                        added = true;
+                    }
+                    prev = aux;
+                    aux = aux.next;
+                }
+                //enlazamos el nodo al final de la lista
+                if(!added) {
+                    prev.next = newNode;
+                }
+            }
         }
     }
 
@@ -186,12 +207,20 @@ public class SinglyLinkedList implements List {
 
     @Override
     public Object getPrev(Object element) throws ListException {
-        if (isEmpty()) {
+        if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-
-        return null;
-
+        if(util.Utility.compare(first.data, element)==0){
+            return "It's the first, it has no prev";
+        }
+        Node aux = first;
+        while(aux.next!=null){
+            if(util.Utility.compare(aux.next.data, element)==0){
+                return aux.data;
+            }
+            aux = aux.next; //muevo aux al sgte nodo
+        }
+        return "Does not exist in Single Linked List";
     }
 
     @Override

@@ -80,11 +80,39 @@ public class DoublyLinkedList implements List {
 
     @Override
     public void addInSortedList(Object element) {
-        try {
-            add(element);
-            sort();
-        } catch (ListException e) {
-            throw new RuntimeException(e);
+        Node newNode = new Node(element);
+        if(isEmpty()){
+            first = newNode;
+        }else{
+            //Cuando first.data es mayor que element
+            if(util.Utility.compare(first.data, element)>0){
+                newNode.next = first;
+                //hago el doble enlace
+                first.prev = newNode;
+                first = newNode;
+            }else{
+                Node prev = first; //rastro o marca
+                Node aux = first.next;
+                boolean added=false;
+                while(aux!=null&&!added){
+                    if(util.Utility.compare(aux.data, element)>0){
+                        prev.next = newNode;
+                        //hago el doble enlace
+                        newNode.prev = prev;
+                        newNode.next = aux;
+                        aux.prev = newNode;
+                        added = true;
+                    }
+                    prev = aux;
+                    aux = aux.next;
+                }
+                //enlazamos el nodo al final de la lista
+                if(!added) {
+                    prev.next = newNode;
+                    //hago el doble enlace
+                    newNode.prev = prev;
+                }
+            }
         }
     }
 
@@ -203,13 +231,27 @@ public class DoublyLinkedList implements List {
 
     @Override
     public Object getPrev(Object element) throws ListException {
-        Node newNode = new Node(element);
+//        Node newNode = new Node(element);
+////        if(isEmpty()){
+////            throw new ListException("Singly Linked List is empty");
+////        }else {
+////            newNode=newNode.prev;
+////        }
+////        return newNode;
         if(isEmpty()){
-            throw new ListException("Singly Linked List is empty");
-        }else {
-            newNode=newNode.prev;
+            throw new ListException("DoublyLinked List is empty");
         }
-        return newNode;
+        if(util.Utility.compare(first.data, element)==0){
+            return "It's the first, it has no prev";
+        }
+        Node aux = first;
+        while(aux.next!=null){
+            if(util.Utility.compare(aux.next.data, element)==0){
+                return aux.data;
+            }
+            aux = aux.next; //muevo aux al sgte nodo
+        }
+        return "Does not exist in Doubly Linked List";
     }
 
     @Override
