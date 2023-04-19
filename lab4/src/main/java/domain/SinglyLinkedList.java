@@ -77,7 +77,33 @@ public class SinglyLinkedList implements List {
 
     @Override
     public void addInSortedList(Object element) {
-
+        Node newNode = new Node(element);
+        if(isEmpty()){
+            first = newNode;
+        }else{
+            //Cuando first.data es mayor que element
+            if(util.Utility.compare(first.data, element)>0){
+                newNode.next = first;
+                first = newNode;
+            }else{
+                Node prev = first; //rastro o marca
+                Node aux = first.next;
+                boolean added=false;
+                while(aux!=null&&!added){
+                    if(util.Utility.compare(aux.data, element)>0){
+                        prev.next = newNode;
+                        newNode.next = aux;
+                        added = true;
+                    }
+                    prev = aux;
+                    aux = aux.next;
+                }
+                //enlazamos el nodo al final de la lista
+                if(!added) {
+                    prev.next = newNode;
+                }
+            }
+        }
     }
 
     @Override
@@ -119,9 +145,16 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-        remove(getLast());
-
-        return getLast();
+        Node aux = first;
+        Node prev = first;
+        while(aux.next!=null){
+            prev = aux;
+            aux = aux.next;
+        }
+        //aux esta en el ultimo nodo, es el q queremos eliminar
+        Object element = aux.data;
+        prev.next = null; //desconecto el ultimo nodo
+        return element;
     }
 
     @Override
@@ -129,7 +162,15 @@ public class SinglyLinkedList implements List {
         if (isEmpty()) {
             throw new ListException("SinglyLinkedList is empty");
         }
-
+        for(int i=1;i<=size();i++){
+            for(int j=i+1;j<size();j++){
+                if(util.Utility.compare(getNode(j).data, getNode(i).data)<0){
+                    Object aux=getNode(i).data;
+                    getNode(i).data=getNode(j).data;
+                    getNode(j).data=aux;
+                }//if
+            }//for j
+        }//for i
 
     }
 
@@ -175,9 +216,17 @@ public class SinglyLinkedList implements List {
         if(isEmpty()){
             throw new ListException("Singly Linked List is empty");
         }
-
-            return null;
-
+        if(util.Utility.compare(first.data, element)==0){
+            return "It's the first, it has no prev";
+        }
+        Node aux = first;
+        while(aux.next!=null){
+            if(util.Utility.compare(aux.next.data, element)==0){
+                return aux.data;
+            }
+            aux = aux.next; //muevo aux al sgte nodo
+        }
+        return "Does not exist in Single Linked List";
     }
 
     @Override
@@ -187,20 +236,14 @@ public class SinglyLinkedList implements List {
         }
         Node aux = first;
 
-        if (util.Utility.compare(getLast(), element)==0) {
-            return " This element is the last in the list, don't have next.";
-        } else {
-
-            while (aux.next != null) {
-
-                if (util.Utility.compare(aux, element)==0) {
-                    return aux.next.data;
-                }
-                aux = aux.next;
-
+        while(aux!=null){
+            if(util.Utility.compare(aux.data, element)==0){
+                if(aux.next!=null) return aux.next.data;
+                else return "Has no next";
             }
-            return "This element don't exist in the list.";
+            aux = aux.next; //muevo aux al sgte nodo
         }
+            return "This element don't exist in the Single Linked List.";
     }
 
     @Override

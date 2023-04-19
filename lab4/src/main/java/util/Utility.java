@@ -102,8 +102,8 @@ public class Utility {
                 //? si : no
             case "Student":
                 Student st1 = (Student)a; Student st2 = (Student)b;
-                return st1.getId().compareTo(st2.getId())<0? -1 :
-                        st1.getId().compareTo(st2.getId())>0? 1 : 0;
+                return st1.getName().compareTo(st2.getName())<0? -1 :
+                        st1.getName().compareTo(st2.getName())>0? 1 : 0;
                 //less  st1.getId().compareTo(st2.getId())<0? -1
             //greater  st1.getId().compareTo(st2.getId())>0? 1
             //igual = 0
