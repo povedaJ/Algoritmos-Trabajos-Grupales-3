@@ -157,13 +157,5 @@ public class SinglyLinkedListTest {
         }
     }
 
-    @Test
-    public void test3() {
-        SinglyLinkedList list = new SinglyLinkedList();
-        list.addInSortedList(new Student("B11111", "Zara", 20, "San Jose"));
-        list.addInSortedList(new Student("B22222", "Arturo", 18, "Cartago"));
-        list.addInSortedList(new Student("C11111", "Mario", 18, "Guanacaste"));
-        System.out.println(list.toString());
-    }
 
 }//fin
