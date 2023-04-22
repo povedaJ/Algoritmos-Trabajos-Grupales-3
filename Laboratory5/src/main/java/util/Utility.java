@@ -6,10 +6,8 @@
 package util;
 
 
-import domain.CircularDoublyLinkedList;
-import domain.CircularLinkedList;
-import domain.SinglyLinkedList;
-import domain.DoublyLinkedList;
+import domain.*;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -132,6 +130,8 @@ public class Utility {
                 Character ch1 = (Character)a; Character ch2 = (Character)b;
                 return ch1.compareTo(ch2)<0? -1 :
                         ch1.compareTo(ch2)>0? 1 : 0;
+
+
                 //? si : no
 //            case "Student":
 //                Student st1 = (Student)a; Student st2 = (Student)b;
@@ -144,6 +144,10 @@ public class Utility {
 //                Course course1 = (Course)a; Course course2 = (Course)b;
 //                return course1.getId().compareTo(course2.getId())<0? -1 :
 //                        course1.getId().compareTo(course2.getId())>0? 1 : 0;
+            case "ID":
+                Employee a5=(Employee)a; int b5=(int)b;
+                return a5.getId()<b5?-1:a5.getId()>b5?1:0;
+                
         }
         return 2; //Unknown
     }

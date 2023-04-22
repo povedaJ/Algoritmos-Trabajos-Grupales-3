@@ -1,9 +1,6 @@
 package controller;
 
-import domain.CircularDoublyLinkedList;
-import domain.CircularLinkedList;
-import domain.JobPosition;
-import domain.ListException;
+import domain.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 import ucr.laboratory5.HelloApplication;
@@ -21,6 +19,8 @@ import ucr.laboratory5.HelloApplication;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 
 
 public class JobPositionsController {
@@ -47,6 +47,7 @@ public class JobPositionsController {
     private TableView<List<String>> positionsTableView;
     private CircularDoublyLinkedList jobPositionList;
     Alert alert;
+    TextInputDialog dialog;
 
     @FXML
     public void initialize() {
@@ -135,6 +136,32 @@ public class JobPositionsController {
 
     @FXML
     void addSortNameOnAction(ActionEvent event) {
+        if (jobPositionList.isEmpty()) {
+            alert.setContentText(" Job Position list is empty");
+            alert.showAndWait();
+        } else {
+            try {
+                int n= jobPositionList.size();
+                for (int i = 1; i <= n; i++) {
+                    for (int j = i + 1; j <= n; j++) {
+                        JobPosition jobPosition1 = (JobPosition) jobPositionList.getNode(i).data;
+                        JobPosition jobPosition2 = (JobPosition) jobPositionList.getNode(j).data;
+                        if (jobPosition2.getDescription().compareToIgnoreCase(jobPosition1.getDescription())<1) {
+                            Object aux = jobPositionList.getNode(i).data;
+                            jobPositionList.getNode(i).data = jobPositionList.getNode(j).data;
+                            jobPositionList.getNode(j).data = aux;
+                        }//if
+                    }//for j
+                }//for i
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setContentText("Job list are sorted by Hourly");
+                //actualizo la lista global
+                util.Utility.setJobPositionList(this.jobPositionList);
+                updateTableView(jobPositionList);
+            } catch (ListException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 
@@ -144,8 +171,6 @@ public class JobPositionsController {
             alert.setContentText(" Job Position list is empty");
             alert.showAndWait();
         } else {
-
-
             String decision = util.FXUtility.alertYesNo(" Job Position list", "Delete ALL items from the list ", "Are you sure?");
             if (decision.equals("YES")) {
                positionsTableView.getItems().clear();
@@ -154,7 +179,6 @@ public class JobPositionsController {
                 alert.setAlertType(Alert.AlertType.INFORMATION);
                 alert.setContentText("All elements  were removed");
                 alert.showAndWait();
-
             }
             if (decision.equals("NO")) {
                 alert.setContentText("No item has been removed");
@@ -182,6 +206,41 @@ public class JobPositionsController {
 
     @FXML
     void btnPrevOnAction(ActionEvent event) {
+        if (jobPositionList.isEmpty()) {
+            alert.setContentText(" Job Position list is empty");
+            alert.showAndWait();
+        } else {
+
+            dialog=util.FXUtility.dialog("Prev element","");
+            dialog.setContentText("Enter the job position ID to know the previous position");
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent() && result.get().compareTo("") != 0) {
+
+                try {
+
+                    if (searchByID(jobPositionList, Integer.parseInt(result.get())) != null) {
+
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.setContentText("The prev position is : " + searchByID(jobPositionList, Integer.parseInt(result.get())).prev.data);
+                        alert.showAndWait();
+
+                    } else {
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.setContentText("The job position searched for in the list does not exist");
+                        alert.show();
+                    }
+
+                } catch (ListException ex) {
+                    throw new RuntimeException(ex);                }
+
+            } else {
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("Complete the form with\nthe information, please");
+                alert.showAndWait();
+            }
+
+        }
+
 
     }
 
@@ -245,6 +304,45 @@ public class JobPositionsController {
     @FXML
     void btnSortbyHourlyOnAction(ActionEvent event) {
 
+        if (jobPositionList.isEmpty()) {
+            alert.setContentText(" Job Position list is empty");
+            alert.showAndWait();
+        } else {
+            try {
+                int n =jobPositionList.size();
+                for (int i = 1; i <= n; i++) {
+                    for (int j = i + 1; j <= n; j++) {
+                        JobPosition jobPosition1 = (JobPosition) jobPositionList.getNode(i).data;
+                        JobPosition jobPosition2 = (JobPosition) jobPositionList.getNode(j).data;
+                        if (jobPosition2.getHourlyWage() < (jobPosition1.getHourlyWage())) {
+                            Object aux = jobPositionList.getNode(i).data;
+                            jobPositionList.getNode(i).data = jobPositionList.getNode(j).data;
+                            jobPositionList.getNode(j).data = aux;
+                        }//if
+                    }//for j
+                }//for i
+                alert.setAlertType(Alert.AlertType.INFORMATION);
+                alert.setContentText("Job list are sorted by Hourly");
+                //actualizo la lista global
+                util.Utility.setJobPositionList(this.jobPositionList);
+                updateTableView(jobPositionList);
+            } catch (ListException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
+    private Node searchByID(CircularDoublyLinkedList list, int id) throws ListException {
+        for(int i = 1; i < list.size(); i++) {
+            JobPosition jobPosition = (JobPosition) list.getNode(i).data;
+          //  if (jobPosition.getId()== id) {
+            if (util.Utility.compare(jobPosition.getId(), id)==0) {
+                return list.getNode(i);
+            }
+        }
+        return null;
+    }
+
+
+
 
 }

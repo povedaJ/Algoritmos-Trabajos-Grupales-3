@@ -22,7 +22,7 @@ public class FXUtility {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle(title);
         dialog.setHeaderText(headerText);
-        //String css = HelloApplication.class.getResource("moderna.css").toExternalForm();
+       // String css = HelloApplication.class.getResource("moderna.css").toExternalForm();
         //dialog.getEditor().getStylesheets().add(css);
         return dialog;
     }
