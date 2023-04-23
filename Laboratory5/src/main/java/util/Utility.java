@@ -11,7 +11,11 @@ import domain.CircularLinkedList;
 import domain.SinglyLinkedList;
 import domain.DoublyLinkedList;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 
@@ -186,5 +190,16 @@ public class Utility {
         return alfabeto[(int) (Math.random() * 25 - 1)];
     }
 
+    public static Date convierteDate(String fecha) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        return format.parse(fecha);
+    }
+    public static Date aDate(LocalDate fecha) {
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDate localDate = LocalDate.of(fecha.getYear(),fecha.getMonth(),fecha.getDayOfMonth());
+        Date date = Date.from(localDate.atStartOfDay(zone).toInstant());
+
+        return date;
+    }
 
 }

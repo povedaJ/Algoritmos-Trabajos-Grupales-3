@@ -207,6 +207,12 @@ loadPage("addEmployee.fxml");
 
     @FXML
     void btnRemoveOnAction(ActionEvent event) {
+        if (employeesList.isEmpty()){
+            alert.setContentText(" Employee list is empty");
+            alert.showAndWait();
+        }else {
+            loadPage("removeEmployee.fxml");
+        }
 
     }
 
@@ -224,13 +230,12 @@ loadPage("addEmployee.fxml");
             }catch (ListException e){
                 throw new RuntimeException(e);
             }
-
         }
     }
 
     @FXML
     void btnSortbyIdOnAction(ActionEvent event) {
-
+        //sortbyId buscar por Id
     }
 
 }
