@@ -1,8 +1,6 @@
 package controller;
 
-import domain.CircularLinkedList;
-import domain.Employee;
-import domain.ListException;
+import domain.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -13,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 import ucr.laboratory5.HelloApplication;
@@ -20,6 +19,7 @@ import ucr.laboratory5.HelloApplication;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class EmployeesController {
 
@@ -46,6 +46,7 @@ public class EmployeesController {
 
     private CircularLinkedList employeesList;
     Alert alert;
+    TextInputDialog dialog;
     @FXML
     public void initialize() {
         this.employeesList = util.Utility.getEmployeeList();
@@ -108,6 +109,7 @@ public class EmployeesController {
                 arrayList.add(String.valueOf(jp.getId()));
                 arrayList.add(jp.getLastName());
                 arrayList.add(jp.getFirstName());
+                arrayList.add(jp.getTitle());
                 arrayList.add(String.valueOf(jp.getBirthday()));
                 //se agrega el arrayList al observableList<String>data
                 data.add(arrayList);
@@ -130,7 +132,33 @@ public class EmployeesController {
 
     @FXML
     void addSortNameOnAction(ActionEvent event) {
+        if (employeesList.isEmpty()) {
+            alert.setContentText(" Employees list is empty");
+            alert.showAndWait();
+        } else {
+            try {
+                int n = employeesList.size();
+                for (int i = 1; i <= n; i++) {
+                    for (int j = i + 1; j <= n; j++) {
+                        Employee jobPosition1 = (Employee) employeesList.getNode(i).data;
+                        Employee jobPosition2 = (Employee) employeesList.getNode(j).data;
+                        if (jobPosition2.getFirstName().compareToIgnoreCase(jobPosition1.getFirstName()) < 1) {
+                            Object aux = employeesList.getNode(i).data;
+                            employeesList.getNode(i).data = employeesList.getNode(j).data;
+                            employeesList.getNode(j).data = aux;
+                        }//if
+                    }//for j
+                }
 
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            alert.setContentText("Employees list are sorted by name");
+            //actualizo la lista global
+            util.Utility.setEmployeeList(this.employeesList);
+            updateTableView(employeesList);
+            } catch (ListException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @FXML
@@ -158,7 +186,7 @@ public class EmployeesController {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-loadPage("addEmployee.fxml");
+        loadPage("addEmployee.fxml");
     }
 
     @FXML
@@ -173,12 +201,79 @@ loadPage("addEmployee.fxml");
 
     @FXML
     void btnGetNextOnAction(ActionEvent event) {
+        if (employeesList.isEmpty()) {
+            alert.setContentText(" Employees list is empty");
+            alert.showAndWait();
+        } else {
+            dialog = util.FXUtility.dialog("Next element", "");
+            dialog.setContentText("Enter the employees ID to know the next position");
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent() && result.get().compareTo("") != 0) {
 
+                try {
+
+                    if (searchByID(employeesList, Integer.parseInt(result.get())) != null) {
+
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.setContentText("The next position is : " + searchByID(employeesList, Integer.parseInt(result.get())).next.data);
+                        alert.showAndWait();
+
+                    } else {
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.setContentText("The employee searched for in the list does not exist");
+                        alert.show();
+                    }
+
+                } catch (ListException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            } else {
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("Complete the form with\nthe information, please");
+                alert.showAndWait();
+            }
+
+        }
     }
 
     @FXML
     void btnPrevOnAction(ActionEvent event) {
+        if (employeesList.isEmpty()) {
+            alert.setContentText(" Emply list is empty");
+            alert.showAndWait();
+        } else {
 
+            dialog = util.FXUtility.dialog("Prev element", "");
+            dialog.setContentText("Enter the employee ID to know the previous position");
+            Optional<String> result = dialog.showAndWait();
+            if (result.isPresent() && result.get().compareTo("") != 0) {
+
+                try {
+
+                    if (searchByID(employeesList, Integer.parseInt(result.get())) != null) {
+
+                        alert.setAlertType(Alert.AlertType.INFORMATION);
+                        alert.setContentText("The prev position is : " + searchByID(employeesList, Integer.parseInt(result.get())).prev.data);
+                        alert.showAndWait();
+
+                    } else {
+                        alert.setAlertType(Alert.AlertType.ERROR);
+                        alert.setContentText("The employee searched for in the list does not exist");
+                        alert.show();
+                    }
+
+                } catch (ListException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            } else {
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setContentText("Complete the form with\nthe information, please");
+                alert.showAndWait();
+            }
+
+        }
     }
 
     @FXML
@@ -238,6 +333,29 @@ loadPage("addEmployee.fxml");
     @FXML
     void btnSortbyIdOnAction(ActionEvent event) {
         //sortbyId buscar por Id
+        if (employeesList.isEmpty()) {
+            alert.setContentText(" Employees list is empty");
+            alert.showAndWait();
+        } else {
+            employeesList.addInSortedList(employeesList);
+
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            alert.setContentText("Employees list are sorted by id");
+            //actualizo la lista global
+            util.Utility.setEmployeeList(this.employeesList);
+            updateTableView(employeesList);
+        }
+    }
+
+    private Node searchByID(CircularLinkedList list, int id) throws ListException {
+        for (int i = 1; i < list.size(); i++) {
+            JobPosition jobPosition = (JobPosition) list.getNode(i).data;
+            //  if (jobPosition.getId()== id) {
+            if (util.Utility.compare(jobPosition.getId(), id) == 0) {
+                return list.getNode(i);
+            }
+        }
+        return null;
     }
 
 }
