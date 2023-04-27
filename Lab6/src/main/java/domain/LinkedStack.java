@@ -69,7 +69,7 @@ public class LinkedStack implements Stack {
         LinkedStack aux = new LinkedStack();
         try {
             while (!isEmpty()) {
-                result += peek() + ", ";
+                result += peek() + ",\n ";
                 aux.push(pop());
             }
 

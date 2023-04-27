@@ -34,7 +34,6 @@ class ArrayStackTest {
             int count=1;
             int n=stack.size();
             ArrayStack auxStack = new ArrayStack(stack.size());
-
             while (!stack.isEmpty()) {
                 Person objStack = (Person) stack.peek();
                 if (objStack.getAge() == age && objStack.getName().equals(name)) {
@@ -56,11 +55,7 @@ class ArrayStackTest {
             }
         }catch (StackException e) {
             throw new RuntimeException(e);
-        }
-
-
-        //  return result;
-    }
+        }}
 
     @Test
     public void test1() {
