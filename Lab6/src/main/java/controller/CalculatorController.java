@@ -45,52 +45,58 @@ public class CalculatorController {
 
     @FXML
     void dividedOnAction(ActionEvent event) {
-
+        //si tiene un numero adelante
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"/");
     }
 
     @FXML
     void eightOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"8");
     }
 
     @FXML
-    void equalOnAction(ActionEvent event) {
+    void equalOnAction(ActionEvent event) {  // =
+        // Hace una serie de condiciones
 
+        //Imprime esto en el texto de arriba. Y sustituye lo de abajo con el resultado
     }
 
     @FXML
     void exponentOnAction(ActionEvent event) {
-
+        //si tiene un numero adelante
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"^");
     }
 
     @FXML
     void fiveOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"5");
     }
 
     @FXML
     void fourOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"4");
     }
 
     @FXML
     void minusOnAction(ActionEvent event) {
-
+        //si tiene un numero adelante
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"-");
     }
 
     @FXML
-    void multiplyOnAction(ActionEvent event) {
-
+    void multiplyOnAction(ActionEvent event) { //*
+        //si tiene un numero adelante
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"x");
     }
 
     @FXML
     void nineOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"9");
     }
 
     @FXML
     void oneOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"1");
     }
 
     @FXML
@@ -101,32 +107,33 @@ public class CalculatorController {
 
     @FXML
     void plusOnAction(ActionEvent event) {
-
+        //si tiene un numero adelante
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"+");
     }
 
     @FXML
     void sevenOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"7");
     }
 
     @FXML
     void sixOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"6");
     }
 
     @FXML
     void threeOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"3");
     }
 
     @FXML
     void twoOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"2");
     }
 
     @FXML
     void zeroOnAction(ActionEvent event) {
-
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"0");
     }
 
 
