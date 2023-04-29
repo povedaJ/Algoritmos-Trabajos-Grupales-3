@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class CalculatorController {
+    private int count1; // "("
+    private int count2;// ")"
 
     @FXML
     private TextField TextFieldExp;
@@ -21,12 +23,14 @@ public class CalculatorController {
     void cleanAddOnAction(ActionEvent event) {
         this.labelExp.setText("");
         this.TextFieldExp.clear();
+        count1=count2=0;
     }
 
     @FXML
     void closeParenthesesOnAction(ActionEvent event) {
-        if (isEmpty()) {
+        if (isEmpty() && count1>count2) {
             this.TextFieldExp.setText(this.TextFieldExp.getText()+")");
+            count2++;
         }
     }
 
@@ -91,9 +95,8 @@ public class CalculatorController {
 
     @FXML
     void openParenthesesOnAction(ActionEvent event) {
-        if (!isEmpty()) {
-            this.TextFieldExp.setText(this.TextFieldExp.getText()+"(");
-        }
+        this.TextFieldExp.setText(this.TextFieldExp.getText()+"(");
+        count1++;
     }
 
     @FXML
