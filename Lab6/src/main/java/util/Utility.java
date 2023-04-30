@@ -206,7 +206,7 @@ public class Utility {
             } else if (currentChar == '(') {
                 s.push(currentChar);
             } else if (currentChar == ')') {
-                while (!s.isEmpty() && s.peek() != "(") {
+                while (!s.isEmpty() && !s.peek().equals('(') ) {
                     postfixExpression.append(s.pop());
                 }
                 s.pop(); // remove '('
