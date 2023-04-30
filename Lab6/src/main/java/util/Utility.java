@@ -195,4 +195,51 @@ public class Utility {
         }
         return !s.isEmpty()?(String) s.peek():"";
     }
+    public static String infixToPostfixConverter(String infixExpression) throws StackException {
+        LinkedStack s= new LinkedStack();
+        StringBuilder postfixExpression = new StringBuilder();
+
+        for (int i = 0; i < infixExpression.length(); i++) {
+            char currentChar = infixExpression.charAt(i);
+            if (Character.isLetterOrDigit(currentChar)) {
+                postfixExpression.append(currentChar);
+            } else if (currentChar == '(') {
+                s.push(currentChar);
+            } else if (currentChar == ')') {
+                while (!s.isEmpty() && s.peek() != "(") {
+                    postfixExpression.append(s.pop());
+                }
+                s.pop(); // remove '('
+            } else {
+                while (!s.isEmpty() && precedence(currentChar) <= precedence((Character) s.peek())) {
+                    postfixExpression.append(s.pop());
+                }
+                s.push(currentChar);
+            }
+        }
+
+        while (!s.isEmpty()) {
+            if (s.peek()=="(") {
+                return "Invalid expression";
+            }
+            postfixExpression.append(s.pop());
+        }
+
+        return postfixExpression.toString();
+    }
+
+    private static int precedence(char operator) {
+        switch (operator) {
+            case '^':
+                return 3;
+            case '*':
+            case '/':
+                return 2;
+            case '+':
+            case '-':
+                return 1;
+            default:
+                return -1;
+        }
+    }
 }
