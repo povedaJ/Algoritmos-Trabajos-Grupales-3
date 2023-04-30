@@ -80,12 +80,16 @@ public class ConverterController {
             //expresion1
             if (!this.exp1TextField.getText().isEmpty()) {//convertimos infijo a postfijo
                 if (this.infixRadioButton.isSelected()) {
-
+                   String result =util.Utility.infixToPostfixConverter(this.exp1TextField.getText());
+                this.result1Text.setText(result);
+                    if(util.Utility.isNumberExp(this.exp1TextField.getText())){
+                        this.result1Text.setText(result+" = "+util.Utility.inFixExpResult(result));
+                }
                 } else {//convertimos posfijo ingijo
                     String result =util.Utility.postfixToInfixConverter(this.exp1TextField.getText());
                     this.result1Text.setText(result);
                     if(util.Utility.isNumberExp(this.exp1TextField.getText())){
-                        this.result1Text.setText(result+" = "+ util.Utility.postFixExpResult(result));
+                        //this.result1Text.setText(result+" = "+ util.Utility.postFixExpResult(result));
                     }
 
                 }

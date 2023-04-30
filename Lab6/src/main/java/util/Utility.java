@@ -140,11 +140,12 @@ public class Utility {
         str =str.replaceAll("\\s","");
         int n= str.length();
         for (int i = 0; i < n; i++) {
-            if(!Character.isDigit(str.charAt(i))&&!isOperator(str.charAt(i))){
-                return false;}
+            if(Character.isDigit(str.charAt(i)) && !isOperator(str.charAt(i))){
+                //true si es digito && treu si es operaador
+                return true;}
 
         }
-        return true;
+        return false;
     }
 
     public static boolean isPreviousNumber(String str) {  //Cuenta el "("
@@ -168,33 +169,51 @@ public class Utility {
         return result;
     }
 
-    public static String postFixExpResult(String postFix) throws StackException {
+    public static String inFixExpResult(String exp) throws StackException {
         LinkedStack s= new LinkedStack();
-       postFix =postFix.replaceAll("\\s","");
-        int n= postFix.length();
-        int op2=0,op1=0;
+       exp =exp.replaceAll("\\s","");
+        int n= exp.length();
+        Double op1,op2;
         for (int i = 0; i <n ; i++) {
 
-            if(Character.isLetterOrDigit(postFix.charAt(i))){
-                s.push(postFix.charAt(i));
-            }else if (isOperator(postFix.charAt(i))){
-                 op2=(int) s.pop();// extraigo el 1 elemento de la pila
-                 op1=(int) s.pop();// extraigo el 2 elemento de la pila
+            if(Character.isDigit(exp.charAt(i))){
+                s.push(Double.parseDouble(String.valueOf(exp.charAt(i))));
+            }else if (isOperator(exp.charAt(i))){
+                 op2=(Double) s.pop();// extraigo el 1 elemento de la pila
+                 op1=(Double) s.pop();// extraigo el 2 elemento de la pila
+            s.push(result(op1,exp.charAt(i),op2));
             }
-            char operador= postFix.charAt(i);
-            switch (operador) {
-                case '+':
-                   s.push( op1 + op2);
-                case '-':
-                    s.push( op1 -op2);
-                case '*':
-                    s.push( op1 * op2);
-                case '/':
-                    s.push( op1 / op2);
             }
-        }
-        return !s.isEmpty()?(String) s.peek():"";
+if(decimalNum(Double.parseDouble(s.peek().toString()))){
+    return !s.isEmpty()? (int)Double.parseDouble(s.peek().toString())+"":"";
+}else{}
+
+        return !s.isEmpty()? s.peek()+"":"";
     }
+
+    private static boolean decimalNum(double num) {
+        if (num % 1 == 0) {
+           return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    private static double result(Double op1, char operator, Double op2) {
+        switch (operator) {
+            case '+':
+                return op1 + op2;
+            case '-':
+                return op1 - op2;
+            case '*':
+                return op1 * op2;
+            case '/':
+                return op1 / op2;
+        }
+        return 0;
+    }
+
     public static String infixToPostfixConverter(String infixExpression) throws StackException {
         LinkedStack s= new LinkedStack();
         StringBuilder postfixExpression = new StringBuilder();
@@ -206,7 +225,7 @@ public class Utility {
             } else if (currentChar == '(') {
                 s.push(currentChar);
             } else if (currentChar == ')') {
-                while (!s.isEmpty() && s.peek() != "(") {
+                while (!s.isEmpty() && !s.peek().equals('(') ) {
                     postfixExpression.append(s.pop());
                 }
                 s.pop(); // remove '('
