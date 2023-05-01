@@ -347,12 +347,12 @@ public class CircularDoublyLinkedList implements List {
         String result = "\nCircular Doubly Linked List Content\n";
         Node aux = first;
         while(aux!=last){
-            result+=aux.data+" ";
+            result+="\n"+aux.data+" ";
             aux = aux.next; //lo movemos al sgte nodo
         }
         //se sale cuando aux==last
         //agregamos la info del ultimo nodo
-        return result+" "+aux.data;
+        return result+" \n"+aux.data;
     }
 
 }

@@ -12,7 +12,9 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 
@@ -203,6 +205,15 @@ public class Utility {
 
         return date;
     }
+    public static int getAge(Date date){
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birthdate = LocalDate.parse(dateFormat(date), fmt);
+        LocalDate now = LocalDate.now();
 
+        Period period = Period.between(birthdate, now);
+        //System.out.printf("Tu edad es: %s años, %s meses y %s días",
+        //            period.getYears(), period.getMonths(), period.getDays());
+        return period.getYears();
+    }
 
 }

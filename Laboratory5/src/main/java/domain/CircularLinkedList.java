@@ -293,11 +293,11 @@ public class CircularLinkedList implements List {
         String result="Circular Linked List Content\n";
         Node aux = first;
         while(aux!=last){
-            result+=aux.data+" ";
+            result+="\n"+aux.data+" ";
             aux = aux.next; //muevo aux al sgte nodo
         }
         //se sale cuando aux==last
         //agregamos la info del ultimo nodo
-        return result+" "+aux.data;
+        return result+" \n"+aux.data;
     }
 }

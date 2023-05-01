@@ -84,7 +84,7 @@ public class TestCircularLinkedList {
                 Employee employee = (Employee) list.getNode(i).data;
                 if (employee.getAge(employee.getBirthday()) >= rango1
                         && employee.getAge(employee.getBirthday()) <= rango2) {
-                    result += employee.toString();
+                    result += "\n"+employee.toString();
                 }
             }//
         } catch (ListException e) {

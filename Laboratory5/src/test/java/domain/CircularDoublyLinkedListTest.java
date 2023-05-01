@@ -70,7 +70,7 @@ public class CircularDoublyLinkedListTest {
                 Employee employee = (Employee) list.getNode(i).data;
                 if (employee.getAge(employee.getBirthday()) >= rango1
                         && employee.getAge(employee.getBirthday()) <= rango2) {
-                    newList.add(employee);
+                    newList.add("\n"+employee);
                 }
             }//
         } catch (ListException e) {

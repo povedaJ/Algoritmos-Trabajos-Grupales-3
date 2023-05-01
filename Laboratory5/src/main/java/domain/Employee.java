@@ -2,6 +2,9 @@ package domain;
 
 import util.Utility;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Employee {
@@ -19,11 +22,16 @@ public class Employee {
         this.birthday = birthday;//fecha de nacimiento
     }
 
-    public Integer getAge(Date date) {
+    public static int getAge(Date date){
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birthdate = LocalDate.parse(util.Utility.dateFormat(date), fmt);
+        LocalDate now = LocalDate.now();
 
-
-        return null;
-    }// hacer
+        Period period = Period.between(birthdate, now);
+        //System.out.printf("Tu edad es: %s años, %s meses y %s días",
+        //            period.getYears(), period.getMonths(), period.getDays());
+        return period.getYears();
+    }
 
     public int getId() {
         return id;
