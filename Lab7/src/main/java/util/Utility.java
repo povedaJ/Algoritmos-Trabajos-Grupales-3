@@ -5,7 +5,10 @@
  */
 package util;
 
+import domain.ArrayQueue;
+import domain.Person;
 import domain.PriorityLinkedQueue;
+import domain.QueueException;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -101,6 +104,14 @@ public class Utility {
                 Character ch1 = (Character)a; Character ch2 = (Character)b;
                 return ch1.compareTo(ch2)<0? -1 :
                         ch1.compareTo(ch2)>0? 1 : 0;
+            case "Person":
+                Person p1 = (Person) a; Person p2 = (Person) b;
+                return p1.getName().compareTo(p2.getName())<0? -1 :
+                        p1.getName().compareTo(p2.getName())>0? 1 : 0;
+            case "PersonMood":
+                Person pm1 = (Person) a; String pm2 = (String) b;
+                return pm1.getMood().compareTo(pm2)<0? -1 :
+                        pm1.getMood().compareTo(pm2)>0? 1 : 0;
         }
         return 2; //Unknown
     }
@@ -116,6 +127,8 @@ public class Utility {
         if(a instanceof Integer&&b instanceof Integer) return "Integer";
         if(a instanceof String&&b instanceof String) return "String";
         if(a instanceof Character&&b instanceof Character) return "Character";
+        if(a instanceof Person&&b instanceof Person) return "Person";
+        if(a instanceof Person&&b instanceof String) return "PersonMood";
         return "Unknown"; //desconocido
     }
 
@@ -143,6 +156,13 @@ public class Utility {
                 "Honduras", "Valentina", "Julia", "Allan",
                 "Gabriela", "Rafael", "Alex", "Diana",
                 "Marcos", "Alejandro", "Javier", "John",
+        };
+        return list[i];
+    }
+    public static String getMood(int i){
+        String list[] = {"Happiness", "Sadness", "Anger", "Sickness", "Cheerful"
+                ,"Reflective", "Gloomy", "Romantic", "Calm", "Hopeful"
+                ,"Fearful", "Tense", "Lonely"
         };
         return list[i];
     }
