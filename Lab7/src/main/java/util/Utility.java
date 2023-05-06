@@ -5,10 +5,8 @@
  */
 package util;
 
-import domain.ArrayQueue;
 import domain.Person;
 import domain.PriorityLinkedQueue;
-import domain.QueueException;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;

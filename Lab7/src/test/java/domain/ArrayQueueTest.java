@@ -3,8 +3,6 @@ package domain;
 import org.junit.jupiter.api.Test;
 import util.Utility;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ArrayQueueTest {
 
     @Test
@@ -15,7 +13,7 @@ class ArrayQueueTest {
             int j =0;
             for (int i = 0; i < 20; i++) {
                 //queue.enQueue(new Person(nombre[i], mood[j]));
-                queue.enQueue(new Person(util.Utility.getPerson(i), util.Utility.getMood(j)));
+                queue.enQueue(new Person(Utility.getPerson(i), Utility.getMood(j)));
                 if(j==12){
                     j=0;
                 }else{

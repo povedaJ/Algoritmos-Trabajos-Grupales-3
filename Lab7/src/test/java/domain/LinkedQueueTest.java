@@ -2,9 +2,20 @@ package domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LinkedQueueTest {
+    @Test
+    void test1() {
+        LinkedQueue queue= new LinkedQueue();
+        SinglyLinkedList singly = new SinglyLinkedList();
+        singly.add("Ana");
+
+        try {
+            queue.enQueue(singly);
+
+        } catch (QueueException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Test
     void test() {//
