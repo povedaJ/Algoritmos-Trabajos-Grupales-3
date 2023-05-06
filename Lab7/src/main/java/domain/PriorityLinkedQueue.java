@@ -69,10 +69,12 @@ public class PriorityLinkedQueue implements Queue {
             rear = newNode;
             //garantizamos que anterior quede apuntando al primer nodo
             front = rear;
+            count++;
         } else {//quiere decir que la cola existe
             Node aux =front;
             Node prev = front;
-            while(aux!=null&&aux.priority>priority){
+
+            while(aux!=null && aux.priority>=priority){
                 prev= aux;//dejamos un rastro en el nodo anterior
                 aux=aux.next;//movemos aux al siguiente nodo
 

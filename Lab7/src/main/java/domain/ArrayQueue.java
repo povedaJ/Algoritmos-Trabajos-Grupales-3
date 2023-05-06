@@ -52,6 +52,7 @@ public class ArrayQueue implements Queue{
 
     @Override
     public int indexOf(Object element) throws QueueException {
+
         if(isEmpty())
             throw new QueueException("Array Queue is Empty");
         ArrayQueue aux = new ArrayQueue(size());
