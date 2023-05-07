@@ -8,6 +8,8 @@ class LinkedQueueTest {
     void test1() {
         LinkedQueue queue= new LinkedQueue();
         SinglyLinkedList singly = new SinglyLinkedList();
+        singly.add("Ana");
+
         for (int i = 0; i < 30; i++) {
             singly.add(Utility.getPlace()); //30 nombres de lugares
         }
@@ -21,6 +23,7 @@ class LinkedQueueTest {
                 aStack.push(Utility.getObject());
             }
             queue.enQueue(singly);
+
             queue.enQueue(aQueue);
             queue.enQueue(aStack);
             System.out.println(queue.toString());
