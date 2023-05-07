@@ -20,9 +20,9 @@ class HearderLinkedQueueTest {
                 }
                 System.out.println(hlq1.toString());
                 //Desencole los objetos con “sunny” y “foggy” de hlq1
-                System.out.println("Desencole los objetos con “sunny” y “foggy”");
-                remove(hlq1, "sunny", hlq2);
-                remove(hlq1, "foggy",hlq2);
+                System.out.println("Desencole los objetos con “Sunny” y “Foggy”");
+                remove(hlq1, "Sunny", hlq2);
+                remove(hlq1, "Foggy",hlq2);
 
                 System.out.print("hlq1");
                 System.out.println(hlq1.toString());
@@ -30,8 +30,8 @@ class HearderLinkedQueueTest {
                 System.out.println(hlq2.toString());
 
                 //Desencole los objetos con “Paraíso” y “Liberia” de hlq1
-                System.out.println("Desencole los objetos con “Paraiso” y “Liberia”");
-                remove(hlq1, "Paraiso", hlq3);
+                System.out.println("Desencole los objetos con “Paraíso” y “Liberia”");
+                remove(hlq1, "Paraíso", hlq3);
                 remove(hlq1, "Liberia",hlq3);
                 System.out.print("hlq1");
                 System.out.println(hlq1.toString());
@@ -39,12 +39,12 @@ class HearderLinkedQueueTest {
                 System.out.println(hlq3.toString());
 
                 //h. Desencole los objetos con “thunderstorm” y “cloudy”
-                System.out.println("Desencole los objetos con “thunderstorm” y “cloudy”");
+                System.out.println("Desencole los objetos con “Thunderstorm” y “Cloudy”");
 
                 HearderLinkedQueue aux = new HearderLinkedQueue();
                 duplicar(hlq1,aux);
-                remove(hlq1, "thunderstorm", hlq2); remove(hlq1, "cloudy",hlq2);
-                remove(aux, "thunderstorm", hlq3); remove(aux, "cloudy",hlq3);
+                remove(hlq1, "Thunderstorm", hlq2); remove(hlq1, "Cloudy",hlq2);
+                remove(aux, "Thunderstorm", hlq3); remove(aux, "Cloudy",hlq3);
 
                 System.out.print("hlq1");
                 System.out.println(hlq1.toString());
