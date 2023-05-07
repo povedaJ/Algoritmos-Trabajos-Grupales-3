@@ -118,11 +118,11 @@ public class HearderLinkedQueue implements Queue {
     @Override
     public String toString() {
         if (isEmpty()) return "HeaderLinked is Empty";
-        String result = "HeaderLinked content\n";
+        String result = "\nHeaderLinked content\n";
         try {
             HearderLinkedQueue aux = new HearderLinkedQueue();
             while (!isEmpty()) {
-                result += front() + ", ";
+                result += front() + "\n ";
                 aux.enQueue(deQueue());
             }
             //al final dejamos las cola en su estado original

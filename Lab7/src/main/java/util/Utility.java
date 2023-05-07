@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 
+
 /**
  * @author Profesor Lic. Gilberth Chaves Avila
  */
@@ -133,6 +134,11 @@ public class Utility {
                         pm1.getMood().compareTo(pm2)>0? 1 : 0;
             case "forArrayS":
                 return  0;
+            case "forClimate":
+                Climate c1 = (Climate) a; String c2 = (String) b;
+                if(c1.getPlace().getName().compareTo(c2)==0){return 0;}
+                return c1.getWeather().getWeather().compareTo(c2)<0? -1 :
+                        c1.getWeather().getWeather().compareTo(c2)>0? 1 : 0;
         }
         return 2; //Unknown
     }
@@ -146,6 +152,7 @@ public class Utility {
        // if (a instanceof Person && b instanceof Object) return "Person";
         if (a instanceof Person && b instanceof String) return "PersonMood";
         if (a instanceof ArrayStack && b instanceof ArrayStack) return "forArrayS";
+        if (a instanceof Climate && b instanceof String) return "forClimate";
         return "Unknown"; //desconocido
     }
 
