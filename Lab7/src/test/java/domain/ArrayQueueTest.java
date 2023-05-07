@@ -9,17 +9,11 @@ class ArrayQueueTest {
     void test() {
         ArrayQueue queue = new ArrayQueue(20);
         try {
-
-            int j = 0;
             for (int i = 0; i < 19; i++) {
 
                 //name y mood viene de forma random desde utility
                 queue.enQueue(new Person(Utility.getPerson(), Utility.getMood()));
-                if (j == 12) {
-                    j = 0;
-                } else {
-                    j++;
-                }
+
             }
             queue.enQueue(new Person("Valeria", "Cheerful"));
 //            queue.enQueue(new Person("Laura", "Cheerful"));

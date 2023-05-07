@@ -131,17 +131,11 @@ public class PriorityQueueController {
 //            priorityLinkedQueue.clear();
 //            util.Utility.setPriorityLinkedQueue(priorityLinkedQueue);
 //            updateTableView(priorityLinkedQueue);
-            int j = 0;
-            for (int i = 0; i < 19; i++) {
 
+            for (int i = 0; i < 19; i++) {
                 //name y mood viene de forma random desde utility
                 String prorityRandom = util.Utility.getPriority();
                 priorityLinkedQueue.enQueue(new Person(util.Utility.getPerson(), util.Utility.getMood(), prorityRandom), getPriority(prorityRandom));
-                if (j == 12) {
-                    j = 0;
-                } else {
-                    j++;
-                }
 
             }
 
@@ -157,6 +151,9 @@ public class PriorityQueueController {
 
     @FXML
     void clearOnAction(ActionEvent event) {
+        this.ChoiceBoxMood.getSelectionModel().clearSelection();
+        this.ChoiceBoxPriority.getSelectionModel().clearSelection();
+        this.TextfieldName.clear();
         if (priorityLinkedQueue.isEmpty()) {
             alert.setContentText(" Priority Linked Queue is empty");
             alert.showAndWait();
