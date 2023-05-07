@@ -148,6 +148,16 @@ public class Utility {
                 if(c1.getPlace().getName().compareTo(c2)==0){return 0;}
                 return c1.getWeather().getWeather().compareTo(c2)<0? -1 :
                         c1.getWeather().getWeather().compareTo(c2)>0? 1 : 0;
+
+            case "Climate":
+               Climate clim1 = (Climate) a;
+               Climate clim2 = (Climate) b;
+                return clim1.getPlace().getName().compareTo(clim2.getPlace().getName()) < 0 ? -1 :
+                        clim1.getWeather().getWeather().compareTo(clim2.getWeather().getWeather()) < 0 ? -1 :
+                                clim1.getPlace().getName().compareTo(clim2.getPlace().getName()) >0 ? 1 :
+                                        clim1.getWeather().getWeather().compareTo(clim2.getWeather().getWeather())  > 0 ? 1 :
+                                                clim1.getPlace().getName().compareTo(clim2.getPlace().getName()) !=
+                                                        clim1.getPlace().getName().compareTo(clim2.getPlace().getName()) ? -1 :0;
         }
         return 2; //Unknown
     }
@@ -162,6 +172,8 @@ public class Utility {
         if (a instanceof Person && b instanceof String) return "PersonMood";
         if (a instanceof ArrayStack && b instanceof ArrayStack) return "forArrayS";
         if (a instanceof Climate && b instanceof String) return "forClimate";
+        if (a instanceof Climate && b instanceof Climate) return "Climate";
+
         return "Unknown"; //desconocido
     }
 
