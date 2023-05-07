@@ -90,12 +90,10 @@ public class PriorityQueueController {
         ObservableList<List<String>> data = FXCollections.observableArrayList();
         try {
 
-            PriorityLinkedQueue aux2 = new PriorityLinkedQueue();
+            PriorityLinkedQueue aux = new PriorityLinkedQueue();
 
             while (!priorityLinkedQueue.isEmpty()) {
-
-                Person p = (Person) priorityLinkedQueue.front();
-//                    String priority = String.valueOf(linked.front());
+                Person p = (Person) util.Utility.getPriorityLinkedQueue().front();
                 List<String> arrayList = new ArrayList<>();
 
                 arrayList.add(p.getName());
@@ -104,14 +102,14 @@ public class PriorityQueueController {
 
                 //Agrego el arrayList al ObservableList data
                 data.add(arrayList);
-//                    aux.enQueue(linked.deQueue(), 1);
-                aux2.enQueue(priorityLinkedQueue.deQueue(), getPriority(p.getPriority()));
+                aux.enQueue(priorityLinkedQueue.deQueue(), getPriority(p.getPriority()));
             }
 
             //Al final dejamos la cola en su estado original
-            while (!aux2.isEmpty()) {
+            while (!aux.isEmpty()) {
+                Integer priority=aux.getFront().priority;
 //                    linked.enQueue(aux.deQueue(), 1);
-                priorityLinkedQueue.enQueue(aux2.deQueue(), 1);
+                priorityLinkedQueue.enQueue(aux.deQueue(), priority);
             }
 
         } catch (QueueException ex) {
@@ -130,6 +128,9 @@ public class PriorityQueueController {
     @FXML
     void autoEnQueueOnAction(ActionEvent event) {
         try {
+//            priorityLinkedQueue.clear();
+//            util.Utility.setPriorityLinkedQueue(priorityLinkedQueue);
+//            updateTableView(priorityLinkedQueue);
             int j = 0;
             for (int i = 0; i < 19; i++) {
 
@@ -160,7 +161,7 @@ public class PriorityQueueController {
             alert.setContentText(" Priority Linked Queue is empty");
             alert.showAndWait();
         } else {
-            String decision = util.FXUtility.alertYesNo("Priority Linked Queue is empty ", "Delete ALL items from the queue ", "Are you sure?");
+            String decision = util.FXUtility.alertYesNo("Priority Linked Queue ", "Delete ALL items from the queue ", "Are you sure?");
             if (decision.equals("YES")) {
                 priorityTableView.getItems().clear();
                 priorityLinkedQueue.clear();
@@ -190,7 +191,6 @@ public class PriorityQueueController {
                         alert.setAlertType(Alert.AlertType.ERROR);
                         alert.setContentText("There's already Person in queue");
                     } else {
-
                         priorityLinkedQueue.enQueue(new Person(this.TextfieldName.getText(), this.ChoiceBoxMood.getValue(), this.ChoiceBoxPriority.getValue()), getPriority(this.ChoiceBoxPriority.getValue()));
                         alert.setAlertType(Alert.AlertType.INFORMATION);
                         alert.setContentText("Person  was added to the queue");
@@ -212,8 +212,8 @@ public class PriorityQueueController {
         }
 
         priorityTableView.getItems().clear();
-        updateTableView(priorityLinkedQueue);
         System.out.println(priorityLinkedQueue.toString());
+        updateTableView(util.Utility.getPriorityLinkedQueue());
     }
 
     private Integer getPriority(String priority) {

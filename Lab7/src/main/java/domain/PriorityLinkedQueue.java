@@ -34,18 +34,20 @@ public class PriorityLinkedQueue implements Queue {
             throw new QueueException("Priority Linked queue is empty");
         }
         PriorityLinkedQueue aux = new PriorityLinkedQueue();
+        Integer priority= getFront().priority;
         int i = 1;//iniciamos en el indice 1
         int j = -1;//si es -1 no existe el elemento en la cola
         while (!isEmpty()) {
             if (util.Utility.compare(front(), element) == 0) {// son iguales
                 j = i;
             }
-            aux.enQueue(deQueue());
+            aux.enQueue(deQueue(),priority);
             i++;
         }
         //al final dejamos la cola en su estado original
         while (!aux.isEmpty()) {
-            enQueue(aux.deQueue());
+            Integer priorit=   aux.getFront().priority;
+            enQueue(aux.deQueue(),priorit);
         }
         return j;
     }
@@ -71,10 +73,9 @@ public class PriorityLinkedQueue implements Queue {
             front = rear;
             count++;
         } else {//quiere decir que la cola existe
-            Node aux =front;
+            Node aux = front;
             Node prev = front;
-
-            while(aux!=null && aux.priority>=priority){
+            while(aux!=null && aux.priority>priority){
                 prev= aux;//dejamos un rastro en el nodo anterior
                 aux=aux.next;//movemos aux al siguiente nodo
 
@@ -84,14 +85,15 @@ public class PriorityLinkedQueue implements Queue {
             if(aux==front){//el nuevo elemento tiene prioridad mas alta
                 newNode.next=front;
                 front=newNode;
-            }else if(aux==null){//prev esta en el ultimo nodo
+            }else {
+                if(aux==null){//prev esta en el ultimo nodo
                 prev.next=newNode;
                 rear=newNode;
             }else{
                 prev.next=newNode;
                 newNode.next=aux;
             }
-        }
+        }}
         count++;//actualizamos el contador de elementos
     }
 
@@ -120,15 +122,20 @@ public class PriorityLinkedQueue implements Queue {
 
         PriorityLinkedQueue aux = new PriorityLinkedQueue();
         boolean finded = false;
+        Integer priority= getFront().priority;
         while (!isEmpty()) {
             if (util.Utility.compare(front(), element) == 0) {// son iguales
                 finded = true;
             }
-            aux.enQueue(deQueue());
+            //aux.enQueue(deQueue());
+
+            aux.enQueue(deQueue(),priority);
         }
         //al final dejamos la cola en su estado original
         while (!aux.isEmpty()) {
-            enQueue(aux.deQueue());
+            //enQueue(aux.deQueue());
+            Integer priorit=   aux.getFront().priority;
+            enQueue(aux.deQueue(),priorit);
         }
 
         return finded;
@@ -160,12 +167,12 @@ public class PriorityLinkedQueue implements Queue {
             PriorityLinkedQueue aux = new PriorityLinkedQueue();
             while (!isEmpty()) {
                 result += front() + ", ";
-                Integer priority= front.priority;
+                Integer priority= front.getPriority();
                 aux.enQueue(deQueue(),priority);
             }
             //al final dejamos las cola en su estado original
             while (!aux.isEmpty()) {
-                Integer priority= aux.front.priority;
+                Integer priority= aux.front.getPriority();
                 enQueue(aux.deQueue(),priority);
             }
 
@@ -174,5 +181,9 @@ public class PriorityLinkedQueue implements Queue {
 
         }
         return result;
+    }
+
+    public Node getFront() {
+        return front;
     }
 }
