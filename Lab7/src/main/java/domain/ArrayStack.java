@@ -58,11 +58,11 @@ public class ArrayStack implements Stack{
 
     @Override
     public String toString() {
-        String result = "Array Stack content";
+        String result = "\nArray Stack content\n";
         ArrayStack aux = new ArrayStack(size());
         try {
             while (!isEmpty()) {
-                result += peek() + ", ";
+                result += peek() + "\n";
                 aux.push(pop());
             }
 

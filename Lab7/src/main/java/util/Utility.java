@@ -5,8 +5,7 @@
  */
 package util;
 
-import domain.Person;
-import domain.PriorityLinkedQueue;
+import domain.*;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -121,6 +120,8 @@ public class Utility {
                 Person pm1 = (Person) a; String pm2 = (String) b;
                 return pm1.getMood().compareTo(pm2)<0? -1 :
                         pm1.getMood().compareTo(pm2)>0? 1 : 0;
+            case "forArrayS":
+                return  0;
         }
         return 2; //Unknown
     }
@@ -133,6 +134,7 @@ public class Utility {
         if (a instanceof Person && b instanceof Person) return "Person";
        // if (a instanceof Person && b instanceof Object) return "Person";
         if (a instanceof Person && b instanceof String) return "PersonMood";
+        if (a instanceof ArrayStack && b instanceof ArrayStack) return "forArrayS";
         return "Unknown"; //desconocido
     }
 
@@ -187,6 +189,32 @@ public class Utility {
         for (char i = 'a'; i <= 'z'; i++)
             alfabeto[cont++] = i;
         return alfabeto[(int) (Math.random() * 25 - 1)];
+    }
+
+    public static Object getObject() {
+        int num = random(0, 4);
+        Object list[] = { new Person(getFirstName(),getMood()), new Place(getPlace())
+                ,new Weather(getWeather()), new Climate(new Place(getPlace()), new Weather(getWeather()))
+        };
+        return list[num];
+    }
+    public static String getPlace() {
+        int num = random(0, 25);
+        String list[] = {"San José", "Ciudad Quesada", "Paraíso", "Turrialba"
+                ,"Limón", "Liberia", "Puntarenas", "San Ramón"
+                , "Puerto Viejo", "Volcán Irazú", "Pérez Zeledón", "Palmares"
+                , "Orotina", "El coco", "Ciudad Neilly", "Sixaola"
+                , "Guápiles", "Siquirres", "El Guarco Cartago", "Santa Bárbara"
+                , "Jacó", "Manuel Antonio", "Quepos", "Santa Cruz", "Nicoya"
+        };
+        return list[num];
+    }
+
+    public static String getWeather() {
+        int num = random(0, 5);
+        String list[] = {"rainy", "thunderstorm", "sunny", "cloudy", "foggy"
+        };
+        return list[num];
     }
 
     public static int getAge(Date date) {
