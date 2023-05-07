@@ -23,6 +23,16 @@ public class Utility {
     private static Random random;    // pseudo-random number generator
     private static long seed;        // pseudo-random number generator seed
     private static PriorityLinkedQueue priorityLinkedQueue;
+    private static LinkedQueue linkedQueue;
+
+
+    public static LinkedQueue getLinkedQueue() {
+        return linkedQueue;
+    }
+
+    public static void setLinkedQueue(LinkedQueue linkedQueue) {
+        Utility.linkedQueue = linkedQueue;
+    }
 
     public static PriorityLinkedQueue getPriorityLinkedQueue() {
         return priorityLinkedQueue;
@@ -38,6 +48,7 @@ public class Utility {
         seed = System.currentTimeMillis();
         random = new Random(seed);
         priorityLinkedQueue = new PriorityLinkedQueue();
+        linkedQueue= new LinkedQueue();
     }
 
 

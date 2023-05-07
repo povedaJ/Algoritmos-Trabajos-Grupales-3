@@ -41,7 +41,6 @@ public class PriorityQueueController {
     private TableColumn<List<String>, String> tableColumnPriority;
     private PriorityLinkedQueue priorityLinkedQueue;
     private Alert alert;
-    TextInputDialog dialog;
 
 
     @FXML
