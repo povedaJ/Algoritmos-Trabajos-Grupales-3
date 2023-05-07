@@ -25,7 +25,15 @@ public class Utility {
     private static long seed;        // pseudo-random number generator seed
     private static PriorityLinkedQueue priorityLinkedQueue;
     private static LinkedQueue linkedQueue;
+    private static LinkedStack linkedStack;
 
+    public static LinkedStack getLinkedStack() {
+        return linkedStack;
+    }
+
+    public static void setLinkedStack(LinkedStack linkedStack) {
+        Utility.linkedStack = linkedStack;
+    }
 
     public static LinkedQueue getLinkedQueue() {
         return linkedQueue;
@@ -50,6 +58,7 @@ public class Utility {
         random = new Random(seed);
         priorityLinkedQueue = new PriorityLinkedQueue();
         linkedQueue= new LinkedQueue();
+        linkedStack= new LinkedStack();
     }
 
 

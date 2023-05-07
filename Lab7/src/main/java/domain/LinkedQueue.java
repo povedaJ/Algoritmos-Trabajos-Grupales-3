@@ -112,6 +112,10 @@ public class LinkedQueue implements Queue {
         return front.data;
     }
 
+    public Node getFront() {
+        return front;
+    }
+
     @Override
     public Object front() throws QueueException {
         if (isEmpty()) {

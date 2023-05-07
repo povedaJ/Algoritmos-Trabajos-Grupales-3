@@ -31,7 +31,10 @@ public class HelloController {
 
     @FXML
     void Exit(ActionEvent event) {
-        System.exit(0);
+        String decision = util.FXUtility.alertYesNo("Laboratory 7", "Closing the project.... " , "Aree you sure?");
+        if (decision.equals("YES")) {
+            System.exit(0);
+        }
     }
 
     @FXML
