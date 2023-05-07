@@ -65,7 +65,7 @@ public class LinkedStack implements Stack {
 
     @Override
     public String toString() {
-        String result = "Linked Stack content\n";
+        String result = "\nLinked Stack content\n";
         LinkedStack aux = new LinkedStack();
         try {
             while (!isEmpty()) {

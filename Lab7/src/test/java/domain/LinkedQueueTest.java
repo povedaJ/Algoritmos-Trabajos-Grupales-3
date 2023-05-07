@@ -13,6 +13,7 @@ class LinkedQueueTest {
         }
         ArrayQueue aQueue = new ArrayQueue(20);
         ArrayStack aStack = new ArrayStack(30);
+        LinkedStack lin = new LinkedStack();
         try {
             for (int i = 0; i < 20; i++) {
                 aQueue.enQueue(new Person(Utility.getPerson(), Utility.getMood()));
@@ -20,9 +21,13 @@ class LinkedQueueTest {
             for (int i = 0; i < 30; i++) {
                 aStack.push(Utility.getObject());
             }
+            for (int i = 0; i < 100; i++) {
+                lin.push(Utility.random(0,100));
+            }
             queue.enQueue(singly);
             queue.enQueue(aQueue);
             queue.enQueue(aStack);
+            queue.enQueue(lin);
             System.out.println(queue.toString());
             //
             System.out.println("\nDesencole los objetos tipo ArrayStack\n");
