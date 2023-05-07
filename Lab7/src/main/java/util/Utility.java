@@ -239,7 +239,7 @@ public class Utility {
 
     public static String getWeather() {
         int num = random(0, 5);
-        String list[] = {"rainy", "thunderstorm", "sunny", "cloudy", "foggy"
+        String list[] = {"Rainy", "Thunderstorm", "Sunny", "Cloudy", "Foggy"
         };
         return list[num];
     }
