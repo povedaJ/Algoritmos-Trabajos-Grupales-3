@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BubbleSortController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="661.0">
+         <children>
+            <Pane prefHeight="589.0" prefWidth="661.0" stylesheets="@stylesheet.css">
+               <children>
+                  <Pane layoutY="-2.0" prefHeight="53.0" prefWidth="661.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="209.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bubble Sorting Algorithm" wrappingWidth="290.13670349121094">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No sorted Array" wrappingWidth="179.47001266479492">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="noSortedTableView" layoutX="14.0" layoutY="100.0" prefHeight="138.0" prefWidth="640.0" />
+                  <Pane layoutX="4.0" layoutY="250.0" prefHeight="232.0" prefWidth="653.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="11.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bubble sorted Array" wrappingWidth="279.46999740600586">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total iterations perfomed: " wrappingWidth="279.46999740600586">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="iterationsTextField" layoutX="291.0" layoutY="37.0" prefHeight="25.0" prefWidth="84.0" />
+                        <TableView fx:id="sortedTableView" layoutX="4.0" layoutY="71.0" prefHeight="138.0" prefWidth="640.0" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="191.0" layoutY="516.0" mnemonicParsing="false" onAction="#startOnAction" style="-fx-background-color: pink;" text="Start" />
+                  <Button layoutX="350.0" layoutY="516.0" mnemonicParsing="false" onAction="#randomizeOnAction" style="-fx-background-color: pink;" text="Randomize" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

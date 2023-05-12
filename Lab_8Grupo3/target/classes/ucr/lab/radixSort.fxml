@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RadixSortController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="661.0">
+         <children>
+            <Pane layoutY="-8.0" prefHeight="701.0" prefWidth="661.0" stylesheets="@stylesheet.css">
+               <children>
+                  <Pane layoutX="-1.0" prefHeight="53.0" prefWidth="661.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="209.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radix Sorting Algorithm" wrappingWidth="290.13670349121094">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No sorted Array" wrappingWidth="179.47001266479492">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="4.0" layoutY="250.0" prefHeight="193.0" prefWidth="653.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="11.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Counter Array" wrappingWidth="279.46999740600586">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="counterArrayTableView" layoutX="4.0" layoutY="38.0" prefHeight="138.0" prefWidth="640.0" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="191.0" layoutY="640.0" mnemonicParsing="false" onAction="#startOnAction" style="-fx-background-color: pink;" text="Start" />
+                  <Button layoutX="350.0" layoutY="640.0" mnemonicParsing="false" onAction="#randomizeOnAction" style="-fx-background-color: pink;" text="Randomize" />
+                  <Text layoutX="12.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radix sorted Array" wrappingWidth="179.47001266479492">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="sortedTableView" layoutX="5.0" layoutY="491.0" prefHeight="138.0" prefWidth="647.0" />
+                  <TableView fx:id="noSortedTableView" layoutX="14.0" layoutY="107.0" prefHeight="136.0" prefWidth="642.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

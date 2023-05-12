@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelloController">
+   <left>
+      <VBox prefHeight="716.0" prefWidth="253.0" style="-fx-background-color: #692B56;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Home" prefHeight="62.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </Button>
+            <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="349.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Elementary Sorting" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#bubbleSortOnAction" text="BubbleSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#improvedBubbleSortOnAction" text="Improved BubbleSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectionSortOnAction" text="SelectionSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#countingSortOnAction" text="CountingSort" />
+               </items>
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </MenuButton>
+            <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="349.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Complex Sorting" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#quixkSortOnAction" text="QuickSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#radixSortOnAction" text="RadixSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#mergeSortOnAction" text="MergeSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#shellSortOnAction" text="ShellSort" />
+               </items>
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </MenuButton>
+            <Button layoutX="10.0" layoutY="196.0" mnemonicParsing="false" onAction="#Exit" prefHeight="62.0" prefWidth="334.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="ap" prefHeight="694.0" prefWidth="994.0" style="-fx-background-color: #692B56;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="1.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 8" textAlignment="CENTER" wrappingWidth="958.7493286132812">
+               <font>
+                  <Font name="Arial" size="40.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
