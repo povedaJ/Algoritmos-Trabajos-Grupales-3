@@ -6,6 +6,7 @@ public class ComplexTest {
     int tmp[]= new  int [20000];
 
 
+
     int a[]= new int [20000];
     int b[]= new int [20000];
     int c[]= new int [20000];
@@ -36,6 +37,7 @@ public class ComplexTest {
             System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(a,200));
         }
         System.out.println("Esta ordenado: "+ isSorted(a));
+
         System.out.println("Esta ordenado: "+ isSorted(b));
         if(!isSorted(b)){
             complex.shellSort(b);
@@ -70,6 +72,56 @@ public class ComplexTest {
         System.out.println("Esta ordenado: "+ isSorted(f));
 
 
+        Search search = new Search();
+
+        for (int i = 0; i < 30; i++) {
+            int value= util.Utility.random(5000);
+            if (search.binarySearch(a,value)==-1){
+                System.out.println("the value "+value+" not exist");
+
+            }else {
+                System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
+
+            }
+            if (search.binarySearch(b,value)==-1){
+                System.out.println("the value "+value+" not exist");
+
+            }else {
+                System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
+
+            }
+            if (search.binarySearch(c,value)==-1){
+                System.out.println("the value "+value+" not exist");
+
+            }else {
+                System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
+
+            }
+            if (search.binarySearch(d,value)==-1){
+                System.out.println("the value "+value+" not exist ");
+
+            }else {
+                System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
+
+            }
+            if (search.binarySearch(e,value)==-1){
+                System.out.println("the value "+value+" not exist ");
+
+            }else {
+                System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
+
+            }
+            if (search.binarySearch(f,value)==-1){
+                System.out.println("the value "+value+" not exist ");
+
+            }else {
+                System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
+
+            }
+
+
+        }
+
 
     }
     private boolean isSorted(int[] a) {
@@ -85,4 +137,6 @@ public class ComplexTest {
             arr[i] = 0;
         }
     }
+
+
 }
