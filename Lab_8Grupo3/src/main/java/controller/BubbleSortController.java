@@ -36,19 +36,15 @@ public class BubbleSortController {
         //agregamos las columnas al tableview
         for (int i = 0; i < 200; i++) {
             final int colIndex = i;
-            TableColumn<List<String>, String> columnSorted = new TableColumn<>("" + i );
+            TableColumn<List<String>, String> columnSorted = new TableColumn<>(" " + i +" ");
             columnSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
             sortedTableView.getColumns().add(columnSorted);
-            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>("" + i );
+            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>(" " + i +" ");
             columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
             noSortedTableView.getColumns().add(columnNoSorted);
 
-
-
         }
-
         noSortedTableView.setItems(getData());
-
 
     }
     public ObservableList<List<String>> getData() {

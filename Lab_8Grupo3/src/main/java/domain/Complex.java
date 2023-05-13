@@ -12,7 +12,16 @@ import java.util.Random;
  * @author Profesor Gilberth Chaves A <gchavesav@ucr.ac.cr>
  */
 public class Complex {
-    private int counterRadix[];
+    private int counterRadix[]; private int tempMS[];
+    private String gapC="";
+    private String gapSA1="";
+    private String gapSA2="";
+    private String gapSA3="";
+    private int itCounter;
+    private String lowMs=" ";
+    private String highMs=" ";
+
+
     public void quickSort(int arr[], int low, int high){
         int i=low;
         int j=high;
@@ -79,17 +88,27 @@ public class Complex {
 
         counterRadix=count;
     }
-    
+
+    public void setItCounter(int itCounter) {
+        this.itCounter = itCounter;
+    }
+
     public void mergeSort(int a[], int tmp[], int low, int high){
+        itCounter+=1;
+        lowMs+=low+" ";
+        highMs+=high+" ";
         if(low<high){
             int center = (low+high)/2;
             mergeSort(a,tmp,low,center );
             mergeSort(a,tmp,center+1,high);
             merge(a,tmp,low,center+1,high);
         }//if
+        tmp=new int [a.length];
+
     }
         
-    private void merge(int a[], int tmp[], int lowIndex, int highIndex, int endIndex){ 
+    private void merge(int a[], int tmp[], int lowIndex, int highIndex, int endIndex){
+
 	int leftEnd = highIndex - 1; 
 	int tmpPos = lowIndex; 
 	int numElements = endIndex - lowIndex + 1; 
@@ -107,17 +126,25 @@ public class Complex {
         tmp[tmpPos++] = a[highIndex++];
     }
 	for( int i=0;i<numElements;i++,endIndex--) 
-            a[endIndex] = tmp[endIndex]; 
+            a[endIndex] = tmp[endIndex];
+
+
+    tempMS=tmp;
+
     }
 
-    public void shellSort(int a[]) { 
-        int n = a.length; 
+
+
+    public void shellSort(int a[]) {
+        int n = a.length;
+       gapC="";gapSA1="";gapSA2="";gapSA3="";
         // Start with a big gap, then reduce the gap 
         for (int gap = n/2; gap > 0; gap /= 2){
                 // Do a gapped insertion sort for this gap size.
             // The first gap elements a[0..gap-1] are already 
             // in gapped order keep adding one more element 
             // until the entire array is gap sorted
+            gapC+=gap+" ";
             int x=1;
             for (int i = gap; i < n; i += 1){
                 // add a[i] to the elements that have been gap
@@ -125,6 +152,9 @@ public class Complex {
                 // position i 
                 int temp = a[i];
 
+                if (gap == 100) {gapSA1 += temp + " ";}
+                if (gap == 50) {gapSA2 += temp + " ";}
+                if (gap == 25) {gapSA3 += temp + " ";}
                 // shift earlier gap-sorted elements up until 
                 // the correct location for a[i] is found 
                 int j;
@@ -138,4 +168,35 @@ public class Complex {
         } 
     }
 
+    public String getGapC() {
+        return gapC;
+    }
+
+    public String getGapSA1() {
+        return gapSA1;
+    }
+
+    public String getGapSA2() {
+        return gapSA2;
+    }
+
+    public String getGapSA3() {
+        return gapSA3;
+    }
+
+    public int[] getTempMS() {
+        return tempMS;
+    }
+
+    public int getItCounter() {
+        return itCounter;
+    }
+
+    public String getLowMs() {
+        return lowMs;
+    }
+
+    public String getHighMs() {
+        return highMs;
+    }
 }

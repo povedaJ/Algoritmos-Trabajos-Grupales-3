@@ -11,28 +11,36 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class improvedBubbleSortController {
+public class shellSortController {
 
     @FXML
-    private TextField iterationsTextField;
+    private TextField gapn2TField;
 
     @FXML
     private TableView noSortedTableView;
 
     @FXML
     private TableView sortedTableView;
-    private int a[] = new int[200];
-    private Elementary elementary;
 
+    @FXML
+    private TextField subarray1TF;
+
+    @FXML
+    private TextField subarray2TF;
+
+    @FXML
+    private TextField subarray3TF;
+    private int a[] = new int[200];
+  private Complex complex ;
 
     @FXML
     public void initialize() {
-        elementary = new Elementary();
+       complex=new Complex();
         util.Utility.fill(a, 99);
-        // System.out.println(util.Utility.show(a, 200));
         //agregamos las columnas al tableview
         for (int i = 0; i < 200; i++) {
             final int colIndex = i;
@@ -42,15 +50,9 @@ public class improvedBubbleSortController {
             TableColumn<List<String>, String> columnNoSorted = new TableColumn<>(" " + i+" ");
             columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
             noSortedTableView.getColumns().add(columnNoSorted);
-
-
         }
-
         noSortedTableView.setItems(getData());
-
-
     }
-
     public ObservableList<List<String>> getData() {
         ObservableList<List<String>> data = FXCollections.observableArrayList();
         List<String> info = new ArrayList<>();
@@ -66,18 +68,26 @@ public class improvedBubbleSortController {
         util.Utility.fill(a, 99);
         noSortedTableView.setItems(getData());
         sortedTableView.getItems().clear();
-        iterationsTextField.clear();
+        gapn2TField.clear();
+        subarray1TF.clear();
+        subarray2TF.clear();
+        subarray3TF.clear();
 
     }
 
     @FXML
     void startOnAction(ActionEvent event) {
         sortedTableView.getItems().clear();
-        iterationsTextField.clear();
-        elementary.bubbleSort(a);
+        gapn2TField.clear();
+        subarray1TF.clear();
+        subarray2TF.clear();
+        subarray3TF.clear();
+        complex.shellSort(a);
         sortedTableView.setItems(getData());
-        String c = String.valueOf(elementary.getItCounter());
-        iterationsTextField.setText(c);
-
+        gapn2TField.setText(complex.getGapC());
+        subarray1TF.setText(complex.getGapSA1()+"si");
+        subarray2TF.setText(complex.getGapSA2()+"si");
+        subarray3TF.setText(complex.getGapSA3());
     }
+
 }

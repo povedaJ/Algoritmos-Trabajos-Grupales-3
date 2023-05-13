@@ -35,9 +35,9 @@ public class RadixSortController {
         //agregamos las columnas al tableview
         for (int i = 0; i < 200; i++) {
             final int colIndex = i;
-            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>("  " + i);
+            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>(" " + i+" ");
             columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
-            TableColumn<List<String>, String> columnSorted = new TableColumn<>("  " + i);
+            TableColumn<List<String>, String> columnSorted = new TableColumn<>(" " + i+" ");
             columnSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
 
             noSortedTableView.getColumns().add(columnNoSorted);
@@ -47,7 +47,7 @@ public class RadixSortController {
         }
         for (int i = 0; i < 10; i++) {
             final int colIndex = i;
-            TableColumn<List<String>, String> columnCounter = new TableColumn<>("  " + i);
+            TableColumn<List<String>, String> columnCounter = new TableColumn<>("  " + i+" ");
             columnCounter.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
             counterArrayTableView.getColumns().add(columnCounter);
         }

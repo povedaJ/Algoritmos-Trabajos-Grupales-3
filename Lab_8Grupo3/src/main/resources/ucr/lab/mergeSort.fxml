@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MergeSortController">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="661.0">
+         <children>
+            <Pane prefHeight="589.0" prefWidth="661.0" stylesheets="@stylesheet.css">
+               <children>
+                  <Pane layoutY="-2.0" prefHeight="44.0" prefWidth="661.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="209.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Merge Sorting Algorithm" wrappingWidth="290.13670349121094">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text layoutX="12.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No sorted Array" wrappingWidth="179.47001266479492">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="noSortedTableView" layoutX="14.0" layoutY="62.0" prefHeight="103.0" prefWidth="640.0" />
+                  <Pane layoutX="4.0" layoutY="302.0" prefHeight="229.0" prefWidth="653.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Merge Sorted Array" wrappingWidth="279.46999740600586">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="recursiveCTF" editable="false" layoutX="168.0" layoutY="90.0" prefHeight="25.0" prefWidth="70.0" />
+                        <TableView fx:id="sortedTableView" layoutX="5.0" layoutY="118.0" prefHeight="102.0" prefWidth="640.0" />
+                        <Text layoutX="13.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High:" wrappingWidth="68.13663101196289">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="13.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursive calls: " wrappingWidth="170.80332565307617">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="highTF" editable="false" layoutX="71.0" layoutY="59.0" prefHeight="25.0" prefWidth="571.0" />
+                        <TextField fx:id="lowTF" editable="false" layoutX="70.0" layoutY="26.0" prefHeight="25.0" prefWidth="572.0" />
+                        <Text layoutX="13.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Low:" wrappingWidth="68.13663101196289">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Button layoutX="191.0" layoutY="534.0" mnemonicParsing="false" onAction="#startOnAction" style="-fx-background-color: pink;" text="Start" />
+                  <Button layoutX="350.0" layoutY="534.0" mnemonicParsing="false" onAction="#randomizeOnAction" style="-fx-background-color: pink;" text="Randomize" />
+                  <Pane layoutX="1.0" layoutY="168.0" prefHeight="23.0" prefWidth="652.0" style="-fx-background-color: pink;">
+                     <children>
+                        <Text layoutX="9.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temp array" wrappingWidth="291.47004747390747">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <TableView fx:id="tempArrayTableView" layoutX="12.0" layoutY="191.0" prefHeight="104.0" prefWidth="640.0" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
