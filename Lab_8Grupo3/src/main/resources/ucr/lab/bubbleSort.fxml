@@ -29,21 +29,21 @@
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <TableView fx:id="noSortedTableView" layoutX="14.0" layoutY="100.0" prefHeight="138.0" prefWidth="640.0" />
+                  <TableView fx:id="noSortedTableView" layoutX="14.0" layoutY="100.0" prefHeight="113.0" prefWidth="640.0" />
                   <Pane layoutX="4.0" layoutY="250.0" prefHeight="232.0" prefWidth="653.0" style="-fx-background-color: pink;">
                      <children>
-                        <Text layoutX="11.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bubble sorted Array" wrappingWidth="279.46999740600586">
+                        <Text layoutX="11.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bubble sorted Array" wrappingWidth="279.46999740600586">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Text>
-                        <Text layoutX="10.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total iterations perfomed: " wrappingWidth="279.46999740600586">
+                        <Text layoutX="10.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total iterations perfomed: " wrappingWidth="279.46999740600586">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="iterationsTextField" layoutX="291.0" layoutY="37.0" prefHeight="25.0" prefWidth="84.0" />
-                        <TableView fx:id="sortedTableView" layoutX="4.0" layoutY="71.0" prefHeight="138.0" prefWidth="640.0" />
+                        <TextField fx:id="iterationsTextField" editable="false" layoutX="291.0" layoutY="55.0" prefHeight="25.0" prefWidth="84.0" />
+                        <TableView fx:id="sortedTableView" layoutX="4.0" layoutY="101.0" prefHeight="113.0" prefWidth="640.0" />
                      </children>
                   </Pane>
                   <Button layoutX="191.0" layoutY="516.0" mnemonicParsing="false" onAction="#startOnAction" style="-fx-background-color: pink;" text="Start" />
