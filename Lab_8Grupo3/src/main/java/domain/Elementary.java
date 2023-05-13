@@ -42,7 +42,6 @@ public class Elementary {
                     a[j]=a[j+1];
                     a[j+1]=aux;
                     swapped = true;
-
                 }//if
                 itCounter++;
             }//for j

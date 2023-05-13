@@ -43,12 +43,8 @@ public class BubbleSortController {
             columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
             noSortedTableView.getColumns().add(columnNoSorted);
 
-
-
         }
-
         noSortedTableView.setItems(getData());
-
 
     }
     public ObservableList<List<String>> getData() {
