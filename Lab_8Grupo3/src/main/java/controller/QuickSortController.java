@@ -13,47 +13,42 @@ import javafx.scene.control.TextField;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MergeSortController {
+public class QuickSortController {
 
     @FXML
     private TextField highTF;
 
     @FXML
-    private TextField lowTF;
+    private TextField lowTField;
 
     @FXML
     private TableView noSortedTableView;
+
+    @FXML
+    private TextField pivotTF;
 
     @FXML
     private TextField recursiveCTF;
 
     @FXML
     private TableView sortedTableView;
-
-    @FXML
-    private TableView tempArrayTableView;
     private int a[] = new int[200];
-    private int temp[] = new int[200];
-    private Complex complex ;
 
+    private Complex complex ;
 
     @FXML
     public void initialize() {
-        complex = new Complex();
+        complex=new Complex();
         util.Utility.fill(a, 99);
-        System.out.println(util.Utility.show(a, 200));
         //agregamos las columnas al tableview
         for (int i = 0; i < 200; i++) {
             final int colIndex = i;
-            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>(" " + i+" ");
-            columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
-            noSortedTableView.getColumns().add(columnNoSorted);
             TableColumn<List<String>, String> columnSorted = new TableColumn<>(" " + i+" ");
             columnSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
             sortedTableView.getColumns().add(columnSorted);
-            TableColumn<List<String>, String> columnTemp = new TableColumn<>(" " + i+" ");
-            columnTemp.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
-            tempArrayTableView.getColumns().add(columnTemp);
+            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>(" " + i+" ");
+            columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
+            noSortedTableView.getColumns().add(columnNoSorted);
         }
         noSortedTableView.setItems(getData());
     }
@@ -66,48 +61,34 @@ public class MergeSortController {
         data.add(info);
         return data;
     }
-    public ObservableList<List<String>> getDataCounter(int tmp[]) {
-        ObservableList<List<String>> data = FXCollections.observableArrayList();
-        List<String> info = new ArrayList<>();
-        for (int i = 0; i < tmp.length; i++) {
-            info.add(String.valueOf(tmp[i]));
-        }
-        data.add(info);
-        return data;
-    }
     @FXML
     void randomizeOnAction(ActionEvent event) {
         util.Utility.fill(a, 99);
         noSortedTableView.setItems(getData());
         sortedTableView.getItems().clear();
-        tempArrayTableView.getItems().clear();
         highTF.clear();
-        lowTF.clear();
+        lowTField.clear();;
+        pivotTF.clear();
         recursiveCTF.clear();
-        complex.setItCounter(0);
     }
 
     @FXML
     void startOnAction(ActionEvent event) {
-
         sortedTableView.getItems().clear();
-        tempArrayTableView.getItems().clear();
-        tempArrayTableView.getItems().clear();
         highTF.clear();
-        lowTF.clear();
+        lowTField.clear();;
+        pivotTF.clear();
         recursiveCTF.clear();
-        complex.mergeSort(a,temp,0,a.length-1);
-        highTF.setText(complex.getHighMs());
-        lowTF.setText(complex.getLowMs());
-        recursiveCTF.setText(String.valueOf(complex.getItCounter()));
-        temp=complex.getTempMS();
+        complex.quickSort(a,0,199);
         sortedTableView.setItems(getData());
-complex.setItCounter(0);
-complex.setLowMs("");
-complex.setHighMs("");
-complex.setTempMS(null);
-       tempArrayTableView.setItems(getDataCounter(temp));
-    }
+        highTF.setText(complex.getHighMs());
+        lowTField.setText(complex.getLowMs());
+        pivotTF.setText(complex.getPivotM());
+        recursiveCTF.setText(String.valueOf(complex.getItCounter()));
+        complex.setItCounter(0);
+        complex.setHighMs("");
+        complex.setLowMs("");
+        complex.setPivotM("");
 
-
+}
 }

@@ -20,9 +20,11 @@ public class Complex {
     private int itCounter;
     private String lowMs=" ";
     private String highMs=" ";
+    private String pivotM=" ";
 
 
     public void quickSort(int arr[], int low, int high){
+        itCounter++;
         int i=low;
         int j=high;
         int pivot=arr[(low+high)/2];
@@ -35,7 +37,10 @@ public class Complex {
                     arr[j]=aux;
                     i++;j--;
                 }//if
-        }while(i<=j);//do
+        }while(i<=j);//
+        lowMs+=low+"  ";
+        highMs+=high+"  ";
+        pivotM+=pivot+"  ";
 
         if(low<j) quickSort(arr,low,j);
         if(i<high) quickSort(arr,i,high);
@@ -89,6 +94,10 @@ public class Complex {
         counterRadix=count;
     }
 
+    public String getPivotM() {
+        return pivotM;
+    }
+
     public void setItCounter(int itCounter) {
         this.itCounter = itCounter;
     }
@@ -106,6 +115,7 @@ public class Complex {
         tmp=new int [a.length];
 
     }
+
         
     private void merge(int a[], int tmp[], int lowIndex, int highIndex, int endIndex){
 
@@ -197,6 +207,23 @@ public class Complex {
     }
 
     public String getHighMs() {
+
         return highMs;
+    }
+
+    public void setLowMs(String lowMs) {
+        this.lowMs = lowMs;
+    }
+
+    public void setHighMs(String highMs) {
+        this.highMs = highMs;
+    }
+
+    public void setPivotM(String pivotM) {
+        this.pivotM = pivotM;
+    }
+
+    public void setTempMS(int[] tempMS) {
+        this.tempMS = tempMS;
     }
 }

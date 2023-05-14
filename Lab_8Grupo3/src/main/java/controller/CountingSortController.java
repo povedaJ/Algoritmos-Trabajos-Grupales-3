@@ -34,10 +34,10 @@ public class CountingSortController {
         for (int i = 0; i < k; i++) {
             //indices columnas
             int colIndex = i;
-            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>(" " + i+" ");
+            TableColumn<List<String>, String> columnNoSorted = new TableColumn<>("  " + i);
             columnNoSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
 
-            TableColumn<List<String>, String> columnSorted = new TableColumn<>(" " + i+" ");
+            TableColumn<List<String>, String> columnSorted = new TableColumn<>("  " + i);
             columnSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
 
             noSortedTableView.getColumns().add(columnNoSorted);

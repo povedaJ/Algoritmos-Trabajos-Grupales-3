@@ -62,6 +62,8 @@ public class Elementary {
 
     public void selectionSort(int a[]){
         itCounter=0;
+        minR="";
+        minIndexR="";
         for(int i=0;i<a.length-1;i++){
             int min=a[i];
             int minIndex=i;
@@ -78,11 +80,11 @@ public class Elementary {
             a[i]=min;
         }//for i
     }
-    
+    private int countercs[] = new int[100];;
     public void countingSort(int a[]) {
         int max = util.Utility.maxArray(a); //va de 0 hasta el elemento maximo
         // create buckets
-        int counter[] = new int[max + 1];
+         int  counter[] = new int[max + 1];
         // fill buckets
         for (int element : a) {
             counter[element]++; //incrementa el num de ocurrencias del elemento
@@ -95,6 +97,11 @@ public class Elementary {
                 counter[i]--;
             }
         }//for i
+        countercs=counter;
+
     }
 
+    public int[] getCountercs() {
+        return countercs;
+    }
 }

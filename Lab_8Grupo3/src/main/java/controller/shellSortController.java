@@ -85,8 +85,8 @@ public class shellSortController {
         complex.shellSort(a);
         sortedTableView.setItems(getData());
         gapn2TField.setText(complex.getGapC());
-        subarray1TF.setText(complex.getGapSA1()+"si");
-        subarray2TF.setText(complex.getGapSA2()+"si");
+        subarray1TF.setText(complex.getGapSA1());
+        subarray2TF.setText(complex.getGapSA2());
         subarray3TF.setText(complex.getGapSA3());
     }
 
