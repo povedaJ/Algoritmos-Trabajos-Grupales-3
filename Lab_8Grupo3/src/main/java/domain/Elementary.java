@@ -11,6 +11,7 @@ package domain;
  */
 public class Elementary {
     private int itCounter;
+    private int [] counterSort;
 
     public int getItCounter() {
         return itCounter;
@@ -57,7 +58,10 @@ public class Elementary {
             a[i]=min;
         }//for i
     }
-    
+
+    public int[] getCounterSort(){
+        return counterSort;
+    }
     public void countingSort(int a[]) {
         int max = util.Utility.maxArray(a); //va de 0 hasta el elemento maximo
         // create buckets
@@ -66,6 +70,12 @@ public class Elementary {
         for (int element : a) {
             counter[element]++; //incrementa el num de ocurrencias del elemento
         }
+
+        counterSort = new int[counter.length];
+        for (int i = 0; i < counter.length; i++) {
+            counterSort[i]= counter[i];
+        }
+
         // sort array
         int index = 0;
         for (int i = 0; i < counter.length; i++) {

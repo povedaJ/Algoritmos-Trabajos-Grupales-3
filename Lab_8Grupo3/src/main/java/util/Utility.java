@@ -153,6 +153,30 @@ public class Utility {
         }
         return result;
     }
+
+    private static boolean isOperator(char value) {
+        switch (value) {
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+            case '^':
+                return true;
+        }
+        return false;
+    }
+    public static boolean isNumberExp(String str) {
+        str = str.replaceAll("\\s", "");
+        int n = str.length();
+        for (int i = 0; i < n; i++) {
+            if (Character.isDigit(str.charAt(i)) && !isOperator(str.charAt(i))&& !Character.isLetter(str.charAt(i))) {
+                //true si es digito && treu si es operaador
+                return true;
+            }
+
+        }
+        return false;
+    }
     public static String show(int[] a, int low,int high) {
         String result = "";
         for (int i = low; i < high; i++) {

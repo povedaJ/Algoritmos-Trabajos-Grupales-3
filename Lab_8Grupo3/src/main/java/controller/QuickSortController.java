@@ -1,7 +1,6 @@
 package controller;
 
 import domain.Complex;
-import domain.Elementary;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,27 +8,37 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountingSortController {
+public class QuickSortController {
     @FXML
-    private TableView counterArrayTableView;
+    private TextField highTextField;
+
+    @FXML
+    private TextField lowTextField;
 
     @FXML
     private TableView noSortedTableView;
 
     @FXML
+    private TextField pivotTextField;
+
+    @FXML
+    private TextField recursiveTextField;
+
+    @FXML
     private TableView sortedTableView;
+
     private int k = 200;  //tamaño lista
     private int aux[] = new int[k];
-    private int count[];
-    private Elementary elementary;
+    private Complex complex;
 
     @FXML
     public void initialize() {
-        elementary = new Elementary();
+        complex = new Complex();
         util.Utility.fill(aux);
         //agregar columnas
         for (int i = 0; i < k; i++) {
@@ -42,17 +51,9 @@ public class CountingSortController {
             columnSorted.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
 
             noSortedTableView.getColumns().add(columnNoSorted);
-
             sortedTableView.getColumns().add(columnSorted);
         }
-        for (int i = 0; i < 100; i++) { //100 es por el numero mayor = 99
-            int colIndex = i;
-            TableColumn<List<String>, String> columnCounter = new TableColumn<>("  " + i);
-            columnCounter.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().get(colIndex)));
-            counterArrayTableView.getColumns().add(columnCounter);
-        }
-
-        //Valores a los indices
+        //Valores a la primera
         noSortedTableView.setItems(getData());
     }
 
@@ -65,47 +66,40 @@ public class CountingSortController {
         data.add(info);
         return data;
     }
-
     @FXML
     void randomizeOnAction(ActionEvent event) {
         util.Utility.fill(aux, 99);
         noSortedTableView.setItems(getData());
         sortedTableView.getItems().clear();
-        counterArrayTableView.getItems().clear();
+        lowTextField.clear();
+        highTextField.clear();
+        pivotTextField.clear();
+        recursiveTextField.clear();
     }
-    public ObservableList<List<String>> getDataCounter2() {
-        ObservableList<List<String>> data = FXCollections.observableArrayList();
-        List<String> info = new ArrayList<>();
-        int count=0;
-        for (int i = 0; i < 100; i++) { //cant max de numeros
-            for (int j = 0; j < aux.length; j++) {
-                if(i == aux[j]){
-                    count++;
-                }
+    public String getDatatext(List a) {
+        String data = "";
+        for (int i = 0; i < a.size(); i++) {
+            if (util.Utility.isNumberExp(a.get(i)+"")){
+                data= data+ a.get(i)+" ";
             }
-            info.add(String.valueOf(count));
-            count=0;
         }
-        data.add(info);
-        return data;
-    }
-    public ObservableList<List<String>> getDataCounter() {
-        ObservableList<List<String>> data = FXCollections.observableArrayList();
-        List<String> info = new ArrayList<>();
-        for (int i = 0; i < count.length; i++) {
-            info.add(String.valueOf(count[i]));
-        }
-        data.add(info);
         return data;
     }
     @FXML
     void startOnAction(ActionEvent event) {
+        lowTextField.clear();
+        highTextField.clear();
+        pivotTextField.clear();
+        recursiveTextField.clear();
         sortedTableView.getItems().clear();
-        counterArrayTableView.getItems().clear();
-        elementary.countingSort(aux); //revisar
+        //llena
+        complex.quickSort(aux,0, k-1);
         sortedTableView.setItems(getData());
-        count = elementary.getCounterSort();
-        counterArrayTableView.setItems(getDataCounter());
-    }
 
+        lowTextField.setText(getDatatext(complex.getLowQuick()));
+        highTextField.setText(getDatatext(complex.getHighQuick()));
+        pivotTextField.setText(getDatatext(complex.getPivotQuick()));
+
+        recursiveTextField.setText(complex.getRecursivo()+"");
+    }
 }

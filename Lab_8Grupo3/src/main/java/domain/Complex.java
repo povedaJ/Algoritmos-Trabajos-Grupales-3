@@ -5,7 +5,7 @@
  */
 package domain;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  *
@@ -13,10 +13,18 @@ import java.util.Random;
  */
 public class Complex {
     private int counterRadix[];
+    private int recursivo;
+    private List lowQuick = new ArrayList();
+    private List highQuick = new ArrayList();
+    private List pivotQuick = new ArrayList();
+    private int a;
+
     public void quickSort(int arr[], int low, int high){
         int i=low;
         int j=high;
         int pivot=arr[(low+high)/2];
+        lowQuick.add(i);
+        a++;
         do{
             while(arr[i]<pivot) i++;
             while(arr[j]>pivot) j--;
@@ -27,12 +35,30 @@ public class Complex {
                     i++;j--;
                 }//if
         }while(i<=j);//do
-
+        highQuick.add(j);
+        pivotQuick.add(pivot);
+        recursivo++;
         if(low<j) quickSort(arr,low,j);
         if(i<high) quickSort(arr,i,high);
     }
 
-    public void radixSort(int a[], int n){ 
+    public List getLowQuick() {
+        return lowQuick;
+    }
+    public List getHighQuick() {
+        return highQuick;
+    }
+    public List getPivotQuick() {
+        return pivotQuick;
+    }
+
+    public int getRecursivo() {
+        int result= recursivo;
+        recursivo=0;
+        return result;
+    }
+
+    public void radixSort(int a[], int n){
         // Find the maximum number to know number of digits 
         int m = util.Utility.maxArray(a); //va de 0 hasta el elemento maximo
   
