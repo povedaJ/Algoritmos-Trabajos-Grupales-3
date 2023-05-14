@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 public class ComplexTest {
     int tmp[]= new  int [20000];
 
-
-
     int a[]= new int [20000];
     int b[]= new int [20000];
     int c[]= new int [20000];
@@ -31,58 +29,63 @@ public class ComplexTest {
         System.out.println("Arrray F content\n "+util.Utility.show(f,200));
 
         Complex complex= new Complex();
-        System.out.println("Esta ordenado: "+ isSorted(a));
+        System.out.println("A Esta ordenado: "+ isSorted(a));
         if(!isSorted(a)){
-            complex.quickSort(a,0,199);
-            System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(a,200));
+            complex.quickSort(a,0,19999);
+            System.out.println("\nArrray A content Improve Bubble Sort\n "+util.Utility.show(a,200));
         }
-        System.out.println("Esta ordenado: "+ isSorted(a));
 
-        System.out.println("Esta ordenado: "+ isSorted(b));
+
+        System.out.println("B Esta ordenado: "+ isSorted(b));
         if(!isSorted(b)){
             complex.shellSort(b);
-            System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(b,200));
+            System.out.println("\nArrray B content Improve Bubble Sort\n "+util.Utility.show(b,200));
         }
-        System.out.println("Esta ordenado: "+ isSorted(b));
-        System.out.println("Esta ordenado: "+ isSorted(c));
+
+        System.out.println("C Esta ordenado: "+ isSorted(c));
         if(!isSorted(c)){
             complex.mergeSort(c,tmp,0,199);
-            System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(c,200));
+            System.out.println("\nArrray C content Improve Bubble Sort\n "+util.Utility.show(c,200));
             vaciarArreglo(tmp);
         }
-        System.out.println("Esta ordenado: "+ isSorted(c));
-        System.out.println("Esta ordenado: "+ isSorted(d));
+
+        System.out.println("D Esta ordenado: "+ isSorted(d));
         if(!isSorted(d)){
             complex.shellSort(d);
-            System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(d,200));
+            System.out.println("\nArrray D content Improve Bubble Sort\n "+util.Utility.show(d,200));
         }
-        System.out.println("Esta ordenado: "+ isSorted(d));
-        System.out.println("Esta ordenado: "+ isSorted(e));
+
+        System.out.println("E Esta ordenado: "+ isSorted(e));
         if(!isSorted(e)){
-            complex.radixSort(e,20000);
-            System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(e,200));
+            complex.radixSort(e,19999);
+            System.out.println("\nArrray E content Improve Bubble Sort\n "+util.Utility.show(e,200));
         }
-        System.out.println("Esta ordenado: "+ isSorted(e));
-        System.out.println("Esta ordenado: "+ isSorted(f));
+
+        System.out.println(" F Esta ordenado: "+ isSorted(f));
         if(!isSorted(f)){
-            complex.mergeSort(f,tmp,0,199);
-            System.out.println("\nArrray content Improve Bubble Sort\n "+util.Utility.show(f,200));
+            complex.mergeSort(f,tmp,0,19999);
+            System.out.println("\nArrray F content Improve Bubble Sort\n "+util.Utility.show(f,200));
             vaciarArreglo(tmp);
         }
-        System.out.println("Esta ordenado: "+ isSorted(f));
+
 
 
         Search search = new Search();
-
         for (int i = 0; i < 30; i++) {
             int value= util.Utility.random(5000);
+
+            //(condicion)?true:false;
+            System.out.println("En array a");
             if (search.binarySearch(a,value)==-1){
+
                 System.out.println("the value "+value+" not exist");
 
             }else {
                 System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
 
             }
+
+            System.out.println("En array b");
             if (search.binarySearch(b,value)==-1){
                 System.out.println("the value "+value+" not exist");
 
@@ -90,6 +93,8 @@ public class ComplexTest {
                 System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
 
             }
+
+            System.out.println("En array c");
             if (search.binarySearch(c,value)==-1){
                 System.out.println("the value "+value+" not exist");
 
@@ -97,6 +102,8 @@ public class ComplexTest {
                 System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
 
             }
+
+            System.out.println("En array d");
             if (search.binarySearch(d,value)==-1){
                 System.out.println("the value "+value+" not exist ");
 
@@ -104,6 +111,8 @@ public class ComplexTest {
                 System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
 
             }
+
+            System.out.println("En array d");
             if (search.binarySearch(e,value)==-1){
                 System.out.println("the value "+value+" not exist ");
 
@@ -111,6 +120,8 @@ public class ComplexTest {
                 System.out.println("the value "+value+" exist in position "+search.linearSearch(f,value));
 
             }
+
+            System.out.println("En array f");
             if (search.binarySearch(f,value)==-1){
                 System.out.println("the value "+value+" not exist ");
 
