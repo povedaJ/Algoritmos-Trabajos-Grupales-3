@@ -272,7 +272,7 @@ public class BTree implements Tree {
     @Override
     public String toString() {
         if(isEmpty()) return "Binary tree is empty";
-        String result = "Binary Tree Tour...\n";
+        String result = "\n Binary Tree Tour...\n";
         result+="PreOrder: "+preOrder(root)+"\n";
         result+="InOrder: "+inOrder(root)+"\n";
         result+="PostOrder: "+postOrder(root)+"\n";
