@@ -263,10 +263,10 @@ public class SinglyLinkedList implements List {
 
     @Override
     public String toString() {
-        String result = "Singly Linked List Content\n";
+        String result = "\nSingly Linked List Content\n";
         Node aux = first;
         while (aux != null) {
-            result += aux.data + "\n ";
+            result += aux.data + ", ";
             aux = aux.next; //muevo aux al sgte nodo
         }
         return result;

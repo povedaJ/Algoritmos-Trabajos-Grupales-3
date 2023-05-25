@@ -62,7 +62,7 @@ public class ArrayStack implements Stack{
         ArrayStack aux = new ArrayStack(size());
         try {
             while (!isEmpty()) {
-                result += peek() + "\n";
+                result += peek() + ", ";
                 aux.push(pop());
             }
 

@@ -92,4 +92,27 @@ public class Utility {
         if(a instanceof Character&&b instanceof Character) return "Character";
         return "Unknown"; //desconocido
     }
+
+    public static String getPerson() {
+        int pnum = random(0, 31);
+        String list[] = {"Alana", "Nicole", "Carlos", "Isabella",
+                "Valeria", "Ana", "Victoria", "Pablo",
+                "Maria", "David", "Mateo", "Cristina",
+                "Natalia", "Claudia", "Laura", "Raquel",
+                "Fabiana", "Andrea", "Martin", "Daniel",
+                "Bertha", "Valentina", "Julia", "Allan",
+                "Gabriela", "Rafael", "Alex", "Diana",
+                "Marcos", "Alejandro", "Javier", "John",
+        };
+        return list[pnum];
+    }
+
+    public static char getAlphabet() {
+        char alfabeto[] = new char[26];
+        int cont = 0;
+        for (char i = 'a'; i <= 'z'; i++)
+            alfabeto[cont++] = i;
+        return alfabeto[(int) (Math.random() * 25 - 1)];
+    }
+
 }
