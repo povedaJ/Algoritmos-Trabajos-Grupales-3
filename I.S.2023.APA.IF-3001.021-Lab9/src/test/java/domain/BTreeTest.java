@@ -14,8 +14,8 @@ class BTreeTest {
         SinglyLinkedList singly2 = new SinglyLinkedList();
         ArrayStack array = new ArrayStack(20);
         LinkedQueue linked = new LinkedQueue();
-        BTree bTree2= new BTree();
-        BTree bTree3= new BTree();
+        BTree bTree2 = new BTree();
+        BTree bTree3 = new BTree();
 
 
         try {
@@ -36,49 +36,41 @@ class BTreeTest {
             System.out.println(bTree.toString());
 
             System.out.println("\nSize Method");
-            System.out.println("The size of the tree is: ["+bTree.size()+"]");
+            System.out.println("The size of the tree is: [" + bTree.size() + "]");
 
             System.out.println("\nHeight Method");
-            System.out.println("The height of the tree is: ["+bTree.height()+"]");
+            System.out.println("The height of the tree is: [" + bTree.height() + "]");
 
             System.out.println("\nHeight(element) Method");
-            System.out.println("The height of the element [singly] is: ["+bTree.height(singly)+"]");
-            System.out.println("The height of the element [linked] is: ["+bTree.height(linked)+"]");
-             System.out.println("The height of the element [bTree2] is: ["+bTree.height(bTree2)+"]");
-            System.out.println("The height of the element [array] is: ["+bTree.height(array)+"]");
-            System.out.println("The height of the element [singly2] is: ["+bTree.height(singly2)+"]");
+            System.out.println("The height of the element [singly] is: [" + bTree.height(singly) + "]");
+            System.out.println("The height of the element [linked] is: [" + bTree.height(linked) + "]");
+            System.out.println("The height of the element [bTree2] is: [" + bTree.height(bTree2) + "]");
+            System.out.println("The height of the element [array] is: [" + bTree.height(array) + "]");
+            System.out.println("The height of the element [singly2] is: [" + bTree.height(singly2) + "]");
 
             System.out.println("\nContains Method");
 
-            System.out.println("Is there array in the bTree? "+bTree.contains(array));
-            System.out.println("Is there linked in the bTree? "+bTree.contains(linked));
-            System.out.println("Is there bTree3 in the bTree? "+bTree.contains(bTree3));
+            System.out.println("Is there array in the bTree? " + bTree.contains(array));
+            System.out.println("Is there linked in the bTree? " + bTree.contains(linked));
+            System.out.println("Is there bTree3 in the bTree? " + bTree.contains(bTree3));
 
 
             System.out.println("\nRemove Method");
-            System.out.println("Singly removed from BTree");
             System.out.println("Singly2 removed from BTree");
-            System.out.println("Array removed from BTree");
-            System.out.println("linked removed from BTree");
             System.out.println("bTree2 removed from BTree");
 
-//            bTree.remove(singly2);
-//            bTree.remove(bTree2);
-
-            bTree.remove(singly);
             bTree.remove(singly2);
-            bTree.remove(array);
-            bTree.remove(linked);
             bTree.remove(bTree2);
+
 
             System.out.println(bTree.toString());
 
             System.out.println("\nHeight(element) Method");
-            System.out.println("The height of the element [singly] is: ["+bTree.height(singly)+"]");
-            System.out.println("The height of the element [singly2] is: ["+bTree.height(singly2)+"]");
-            System.out.println("The height of the element [array] is: ["+bTree.height(array)+"]");
-            System.out.println("The height of the element [linked] is: ["+bTree.height(linked)+"]");
-            System.out.println("The height of the element [bTree2] is: ["+bTree.height(bTree2)+"]");
+            System.out.println("The height of the element [singly] is: [" + bTree.height(singly) + "]");
+            System.out.println("The height of the element [singly2] is: [" + bTree.height(singly2) + "]");
+            System.out.println("The height of the element [array] is: [" + bTree.height(array) + "]");
+            System.out.println("The height of the element [linked] is: [" + bTree.height(linked) + "]");
+            System.out.println("The height of the element [bTree2] is: [" + bTree.height(bTree2) + "]");
 
 
         } catch (StackException e) {
