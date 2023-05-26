@@ -151,19 +151,22 @@ public class BTree implements Tree {
         return node;
     }
 
+
     private Object getLeaf(BTreeNode node) {
+        Object aux;
         if(node==null)
             return null;
-        //Si es una hoja
+            //Si es una hoja
         else if(node.left==null && node.right==null)
             return node.data; //es una hoja
         else{
-            if((getLeaf(node.left)==null))
+            aux = getLeaf(node.left);
+            if(aux==null) {
                 return getLeaf(node.right);
+            }
         }
-        return null;
+        return aux;
     }
-
     @Override
     public int height(Object element) throws TreeException {
         if(isEmpty()){
