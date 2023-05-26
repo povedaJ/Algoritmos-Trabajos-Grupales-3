@@ -1,5 +1,10 @@
 package util;
 
+import domain.ArrayStack;
+import domain.BTree;
+import domain.LinkedQueue;
+import domain.SinglyLinkedList;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -75,6 +80,18 @@ public class Utility {
                 Character ch1 = (Character)a; Character ch2 = (Character)b;
                 return ch1.compareTo(ch2)<0? -1 :
                         ch1.compareTo(ch2)>0? 1 : 0;
+            case "ArrayStack":
+                ArrayStack arrS1 = (ArrayStack) a; ArrayStack arrS2 = (ArrayStack) b;
+                return !arrS1.equals(arrS2)  ? -1 : 0;
+            case "SinglyLinkedList":
+                SinglyLinkedList list1 = (SinglyLinkedList) a; SinglyLinkedList list2 = (SinglyLinkedList) b;
+                return !list1.equals(list2)  ? -1 : 0;
+            case "LinkedQueue":
+                LinkedQueue linked1 = (LinkedQueue) a; LinkedQueue linked2 = (LinkedQueue) b;
+                return !linked1.equals(linked2)  ? -1 : 0;
+            case "BTree":
+                BTree btree1 = (BTree) a; BTree btree2 = (BTree) b;
+                return !btree1.equals(btree2)  ? -1 : 0;
         }
         return 2; //Unknown
     }
@@ -83,6 +100,10 @@ public class Utility {
         if(a instanceof Integer) return "Integer";
         if(a instanceof String) return "String";
         if(a instanceof Character) return "Character";
+        if(a instanceof ArrayStack) return "ArrayStack";
+        if(a instanceof SinglyLinkedList) return "SinglyLinkedList";
+        if(a instanceof LinkedQueue) return "LinkedQueue";
+        if(a instanceof BTree) return "BTree";
         return "Unknown"; //desconocido
     }
 
@@ -90,6 +111,10 @@ public class Utility {
         if(a instanceof Integer&&b instanceof Integer) return "Integer";
         if(a instanceof String&&b instanceof String) return "String";
         if(a instanceof Character&&b instanceof Character) return "Character";
+        if(a instanceof ArrayStack&&b instanceof ArrayStack) return "ArrayStack";
+        if(a instanceof SinglyLinkedList &&b instanceof SinglyLinkedList) return "SinglyLinkedList";
+        if(a instanceof LinkedQueue &&b instanceof LinkedQueue) return "LinkedQueue";
+        if(a instanceof BTree &&b instanceof BTree) return "BTree";
         return "Unknown"; //desconocido
     }
 
